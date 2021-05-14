@@ -1,3 +1,4 @@
+
 /*
 ---------------------Utils
 */
@@ -19,12 +20,11 @@
 @import './../public/components/Navbar/_Navbar.scss';
 @import './../public/components/PresentationCard/_PresentationCard.scss';
 
-
+---
+---
 * {
-    margin: 0;
-    padding: 0;
-    border-style: hidden;
-    font-family: sansation;    
+  
+    font-family: $lato;    
 }
 
 body {
