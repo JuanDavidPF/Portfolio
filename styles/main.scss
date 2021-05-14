@@ -1,0 +1,40 @@
+/*
+---------------------Utils
+*/
+
+@import './utils/_reset.scss';
+@import './utils/_breakpoints.scss';
+@import './utils/_fonts.scss';
+@import './utils/_colors.scss';
+
+/*
+---------------------Containers
+*/
+
+
+/*
+---------------------Components
+*/
+
+@import './../public/components/Navbar/_Navbar.scss';
+@import './../public/components/PresentationCard/_PresentationCard.scss';
+
+
+* {
+    margin: 0;
+    padding: 0;
+    border-style: hidden;
+    font-family: sansation;    
+}
+
+body {
+    display: flex;
+    overflow-x: hidden;
+}
+
+main {
+    height: auto;
+    display: flex;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
