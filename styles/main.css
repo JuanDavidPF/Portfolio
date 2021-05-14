@@ -1,0 +1,213 @@
+/*
+---------------------Utils
+*/
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+      -ms-text-size-adjust: none;
+          text-size-adjust: none;
+}
+
+footer, header, nav, section, main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+/*
+---------------------Containers
+*/
+/*
+---------------------Components
+*/
+.navbar {
+  background-color: #313232;
+  height: 100vh;
+  width: 75px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  position: fixed;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.navbar__logo {
+  margin-top: 45px;
+  width: 55px;
+  cursor: pointer;
+}
+
+.navbar__separation {
+  width: 70%;
+  margin: 50px 0;
+  border-bottom: 2px solid white;
+}
+
+.main_greetings_navbar__separation {
+  width: 100%;
+  margin: 75px 0px 25px 0;
+  border-bottom: 2px solid #4e4e4e;
+}
+
+.navbar__linksWrapper {
+  width: 100%;
+  height: 450px;
+  min-height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.navbar__linksWrapper__link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.navbar__linksWrapper__link > img {
+  width: 30px;
+}
+
+.main_greetings__wrapper {
+  width: 100vw;
+  height: 100vh;
+  min-height: 750px;
+  max-height: 1080px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main_greetings {
+  margin: 75px;
+  padding: 50px;
+  margin-left: 150px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 80%;
+}
+
+.main_greetings_picture {
+  width: 125px;
+}
+
+.main_greetings_title {
+  font-family: "Lato", sans-serif;
+  font-size: 75px;
+  letter-spacing: 5px;
+  color: #1C1C1C;
+  font-weight: 300;
+}
+
+.main_greetings_subtitle {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  letter-spacing: 5px;
+}
+
+.main_greetings_info_wrapper {
+  margin-top: 50px;
+}
+
+* {
+  font-family: "Lato", sans-serif;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow-x: hidden;
+}
+
+main {
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+}
+/*# sourceMappingURL=main.css.map */
