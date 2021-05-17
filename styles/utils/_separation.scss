@@ -1,0 +1,16 @@
+.separation {
+
+
+    &-light {
+        border-bottom: 2px solid $white;
+    }
+
+    &-dark {
+        border-bottom: 2px solid $black;
+    }
+
+    &-gray {
+        border-bottom: 2px solid $gray;
+    }
+
+}
