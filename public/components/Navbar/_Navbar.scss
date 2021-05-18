@@ -11,6 +11,7 @@
     position: fixed;
     overflow-y: auto;
     overflow-x: hidden;
+    z-index: 5;
 
     .separation-light {
         margin: 50px 0;

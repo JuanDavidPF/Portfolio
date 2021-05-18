@@ -1,0 +1,55 @@
+.projects__section {
+    display: flex;
+    width: 30vw;
+    height: 100vh;
+    min-height: 750px;
+    max-height: 1080px;
+    min-width: 500px;
+
+    .controller {
+        height: 100%;
+        width: 12px;
+        background-color: $darkGray;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+
+        button {
+            $circleSize: 60px;
+            height: $circleSize * 1.7;
+            width: $circleSize;
+            border-bottom-left-radius: $circleSize * 2;
+            border-top-left-radius: $circleSize * 2;
+
+
+            background-color: $darkGray;
+            position: absolute;
+            cursor: w-resize;
+            border: none;
+
+        }
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+    
+        align-items: center;
+        width: 100%;
+        height: 100%;
+       
+      
+        header {
+            width: 100%;
+            height: 112px;
+            background-color: $darkGray;
+        }
+
+        main {
+            background-color: $lightGray;
+            width: 100%;
+            flex-grow: 100;
+        }
+    }
+}

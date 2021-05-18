@@ -1,4 +1,3 @@
-
 /*
 ---------------------Utils
 */
@@ -6,8 +5,8 @@
 @import './utils/_reset.scss';
 @import './utils/_breakpoints.scss';
 @import './utils/_fonts.scss';
-@import './utils/_colors.scss'; 
-@import './utils/_separation.scss'; 
+@import './utils/_colors.scss';
+@import './utils/_separation.scss';
 
 /*
 ---------------------Containers
@@ -19,12 +18,12 @@
 */
 
 @import './../public/components/Navbar/_Navbar.scss';
-@import './../public/components/PresentationCard/_PresentationCard.scss';
-
+@import './../public/containers/PresentationCard/_PresentationCard.scss';
+@import './../public/containers/ProjectsCard/_ProjectsCard.scss';
 
 * {
-  
-    font-family: $lato;    
+
+    font-family: $lato;
 }
 
 body {
@@ -33,6 +32,7 @@ body {
 }
 
 main {
+
     height: auto;
     display: flex;
     flex-shrink: 0;
