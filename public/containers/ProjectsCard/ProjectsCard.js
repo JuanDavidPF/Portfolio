@@ -52,7 +52,7 @@ const PresentationOpacityHandler = () => {
 const MaximisePresentationDashboard = () => {
   resizingPanel = true;
 
-  if (presentationDashboard.offsetWidth <= 550)
+  if (presentationDashboard.offsetWidth < 750)
     presentationDashboard.style.width = "750px";
 
 
