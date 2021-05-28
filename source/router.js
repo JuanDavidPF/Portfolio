@@ -17,7 +17,7 @@ function AnalyzeLink() {
 
 function Router() {
   AnalyzeLink();
-  currentScreen = linkRoute;
+
 
   switch (linkRoute) {
     case "":
