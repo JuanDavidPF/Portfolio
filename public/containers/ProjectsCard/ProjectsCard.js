@@ -244,6 +244,7 @@ const ProjectsScreen = () => {
     SetTransitionsProperties(projectDashboard, "width", true);
     SetTransitionsProperties(projectsContent, "opacity", true);
 
+    presentationDashboard.style.maxWidth = "100vw";
     presentationDashboard.style.width = "0px";
 
     projectDashboard.style.width = "100vw";
@@ -254,8 +255,7 @@ const ProjectsScreen = () => {
 
     setTimeout(() => {
       currentScreen = "/projects";
-      resizingPanel = false;
-      presentationDashboard.style.maxWidth = "none";
+      resizingPanel = false;     
 
       SetTransitionsProperties(presentationDashboard, "width", false);
       SetTransitionsProperties(presentationContent, "opacity", false);
