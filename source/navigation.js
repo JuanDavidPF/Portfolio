@@ -1,39 +1,36 @@
-const homeBtn = document.getElementById("#homeBtn");
-const meBtn = document.getElementById("#meBtn");
-const projectsBtn = document.getElementById("#projectsBtn");
+let verificationThread;
+let calculateDelay;
+let nextVerification = 0;
 
 homeBtn.addEventListener("click", () => {
-  if (linkRoute != "/home") Redirect("/home");
-  else HomeScreen();
-  ValidateSuccesfulTransition("/home", 500);
+  Redirect("/home");
+
+  ValidateSuccesfulTransition(500);
 });
 meBtn.addEventListener("click", () => {
-  if (linkRoute != "/about-me") Redirect("/about-me");
-  else AboutMeScreen();
-  ValidateSuccesfulTransition("/about-me", 500);
+  Redirect("/about-me");
+
+  ValidateSuccesfulTransition(500);
 });
 projectsBtn.addEventListener("click", () => {
-  if (linkRoute != "/projects") Redirect("/projects");
-  else ProjectsScreen();
-  ValidateSuccesfulTransition("/projects", 500);
+  Redirect("/projects");
+
+  ValidateSuccesfulTransition(500);
 });
 
-const ValidateSuccesfulTransition = (screen, delay) => {
-  setTimeout(() => {
-    if (currentScreen != screen) {
-      switch (screen) {
-        case "/home":
-          HomeScreen();
-          break;
+const ValidateSuccesfulTransition = (delay) => {
+  clearTimeout(verificationThread);
+  clearInterval(calculateDelay);
+  delay -= nextVerification;
 
-        case "/about-me":
-          AboutMeScreen();
-          break;
+  calculateDelay = setInterval(() => {
+    nextVerification += 2.5;
+  }, 1);
 
-        case "/projects":
-          ProjectsScreen();
-          break;
-      }
-    }
+  verificationThread = setTimeout(() => {
+    clearInterval(calculateDelay);
+    clearTimeout(verificationThread);
+    nextVerification = 0;
+    Refresh();
   }, delay);
 };

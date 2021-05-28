@@ -1,3 +1,7 @@
+const homeBtn = document.getElementById("#homeBtn");
+const meBtn = document.getElementById("#meBtn");
+const projectsBtn = document.getElementById("#projectsBtn");
+
 const mainContainer = document.querySelector("main");
 const presentationDashboard = document.querySelector(".presentation__section");
 const presentationContent =
@@ -31,25 +35,16 @@ let projectDashboardSizes = {
 let currentScreen;
 
 window.addEventListener("resize", () => {
-  if (
-    window.innerWidth <= 600 &&
-    !presentationCollapsed &&
-    !resizeBtnClicked &&
-    currentScreen == "/home"
-  ) {
-    Redirect("/about-me");
-  }
+  if (!presentationCollapsed && !resizeBtnClicked && currentScreen == "/home") {
+    ValidateSmallDisplay();
 
-  setTimeout(() => {
-    if (
-      window.innerWidth <= 600 &&
-      !presentationCollapsed &&
-      !resizeBtnClicked &&
-      currentScreen == "/home"
-    ) {
-      Redirect("/about-me");
-    }
-  }, 505);
+    setTimeout(() => {
+      ExpandProjectDashboard();
+      ValidateSmallDisplay();
+    }, 501);
+
+    ExpandProjectDashboard();
+  }
 });
 
 projectDashboardBar.addEventListener("pointerdown", () => {
@@ -84,19 +79,51 @@ const ResizePresentaionPanel = (width) => {
   resizingPanel = true;
 
   let presentationWidth = (width / window.innerWidth) * 100 + "vw";
-  if (
-    width < presentationDashboardSizes.minOpenedWidth &&
-    !presentationCollapsed
-  )
-    presentationWidth = presentationDashboardSizes.minOpenedWidth + "px";
 
-  if (
-    width > window.innerWidth - projectDashboardSizes.minOpenedWidth &&
-    !presentationCollapsed &&
-    currentScreen == "/home"
-  )
-    presentationWidth =
-      window.innerWidth - projectDashboardSizes.minOpenedWidth + "px";
+  //ToProjectsZone
+  if (width < presentationDashboardSizes.minOpenedWidth) {
+    if (currentScreen != "/projects") {
+      presentationWidth = presentationDashboardSizes.minOpenedWidth + "px";
+
+      let extension = Map(
+        width,
+        presentationDashboardSizes.minOpenedWidth - 50,
+        presentationDashboardSizes.minOpenedWidth,
+        10,
+        0
+      );
+      if (extension > 50) extension = 50;
+      projectDashboardBar.style.boxShadow =
+        "#2f5af580 -3px 0px " + extension + "px " + extension / 2 + "px";
+    }
+  }
+
+  //ToHomeZone
+  else if (
+    width >= presentationDashboardSizes.minOpenedWidth &&
+    width <= window.innerWidth - projectDashboardSizes.minOpenedWidth
+  ) {
+    projectDashboardBar.style.boxShadow = "#8f8f8fec -3px 0px 15px 0px";
+  }
+
+  //ToAboutMeZone
+  else if (width > window.innerWidth - projectDashboardSizes.minOpenedWidth) {
+    if (currentScreen == "/home") {
+      presentationWidth =
+        window.innerWidth - projectDashboardSizes.minOpenedWidth + "px";
+
+      let extension = Map(
+        width,
+        window.innerWidth - projectDashboardSizes.minOpenedWidth - 50,
+        window.innerWidth - projectDashboardSizes.minOpenedWidth,
+        0,
+        10
+      );
+      if (extension > 50) extension = 50;
+      projectDashboardBar.style.boxShadow =
+        "#2f5af580 -3px 0px " + extension + "px " + extension / 2 + "px";
+    }
+  }
 
   presentationDashboard.style.width = presentationWidth;
 
@@ -171,9 +198,13 @@ const DragPanelNavigation = (mouseX) => {
 };
 
 const HomeScreen = () => {
+  ValidateSmallDisplay();
   if (!resizingPanel) {
+    UpdateLinkBtns("/home");
     resizingPanel = true;
     presentationCollapsed = false;
+
+    projectDashboardBar.style.boxShadow = "#8f8f8fec -3px 0px 15px 0px";
 
     SetTransitionsProperties(presentationDashboard, "width", true);
     SetTransitionsProperties(presentationContent, "opacity", true);
@@ -181,28 +212,36 @@ const HomeScreen = () => {
     SetTransitionsProperties(projectDashboard, "width", true);
     SetTransitionsProperties(projectsContent, "opacity", true);
 
-    presentationDashboard.style.width = 70 + "vw";
+    presentationDashboard.style.width = 50 + "vw";
 
     presentationContent.style.opacity = 1;
     projectsContent.style.opacity = 1;
 
-    projectDashboard.style.width = 30 + "vw";
+    projectDashboard.style.width = 50 + "vw";
+
     projectDashboard.style.paddingLeft = "0px";
 
     setTimeout(() => {
-      currentScreen = "/home";
+      presentationDashboard.style.minWidth =
+        presentationDashboardSizes.minOpenedWidth + "px";
+
+      projectDashboard.style.minWidth =
+        presentationDashboardSizes.minOpenedWidth + "px";
+
       SetTransitionsProperties(presentationDashboard, "width", false);
       SetTransitionsProperties(presentationContent, "opacity", false);
 
       SetTransitionsProperties(projectDashboard, "width", false);
       SetTransitionsProperties(projectsContent, "opacity", false);
       resizingPanel = false;
+      ValidateSmallDisplay();
     }, 500);
   }
 };
 
 const AboutMeScreen = () => {
   if (!resizingPanel) {
+    UpdateLinkBtns("/about-me");
     resizingPanel = true;
     presentationCollapsed = false;
     SetTransitionsProperties(presentationDashboard, "width", true);
@@ -210,6 +249,8 @@ const AboutMeScreen = () => {
 
     SetTransitionsProperties(presentationContent, "opacity", true);
     SetTransitionsProperties(projectsContent, "opacity", true);
+
+    projectDashboardBar.style.boxShadow = "#8f8f8fec -3px 0px 15px 0px";
 
     presentationDashboard.style.width = "100vw";
     presentationDashboard.style.maxWidth = "100vw";
@@ -221,7 +262,6 @@ const AboutMeScreen = () => {
     projectsContent.style.opacity = 0;
 
     setTimeout(() => {
-      currentScreen = "/about-me";
       SetTransitionsProperties(presentationDashboard, "width", false);
       SetTransitionsProperties(presentationContent, "opacity", false);
 
@@ -235,6 +275,8 @@ const AboutMeScreen = () => {
 
 const ProjectsScreen = () => {
   if (!resizingPanel) {
+    UpdateLinkBtns("/projects");
+
     resizingPanel = true;
     presentationCollapsed = true;
 
@@ -244,19 +286,20 @@ const ProjectsScreen = () => {
     SetTransitionsProperties(projectDashboard, "width", true);
     SetTransitionsProperties(projectsContent, "opacity", true);
 
+    projectDashboardBar.style.boxShadow = "#8f8f8fec -3px 0px 15px 0px";
+
+    presentationDashboard.style.minWidth = "0px";
     presentationDashboard.style.maxWidth = "100vw";
     presentationDashboard.style.width = "0px";
 
     projectDashboard.style.width = "100vw";
-    projectDashboard.style.paddingLeft = "75px";
 
     presentationContent.style.opacity = 0;
     projectsContent.style.opacity = 1;
 
     setTimeout(() => {
-      currentScreen = "/projects";
-      resizingPanel = false;     
-
+      resizingPanel = false;
+      projectDashboard.style.paddingLeft = "75px";
       SetTransitionsProperties(presentationDashboard, "width", false);
       SetTransitionsProperties(presentationContent, "opacity", false);
 
@@ -284,4 +327,49 @@ const SetTransitionsProperties = (element, property, activate) => {
 const ExpandProjectDashboard = () => {
   projectDashboard.style.width =
     window.innerWidth - presentationDashboard.offsetWidth + "px";
+};
+
+const UpdateLinkBtns = (screen) => {
+  switch (screen) {
+    case "/home":
+      if (!homeBtn.classList.contains("selected"))
+        homeBtn.classList.add("selected");
+      if (meBtn.classList.contains("selected"))
+        meBtn.classList.remove("selected");
+      if (projectsBtn.classList.contains("selected"))
+        projectsBtn.classList.remove("selected");
+      break;
+
+    case "/about-me":
+      if (!meBtn.classList.contains("selected"))
+        meBtn.classList.add("selected");
+      if (homeBtn.classList.contains("selected"))
+        homeBtn.classList.remove("selected");
+      if (projectsBtn.classList.contains("selected"))
+        projectsBtn.classList.remove("selected");
+      break;
+
+    case "/projects":
+      if (!projectsBtn.classList.contains("selected"))
+        projectsBtn.classList.add("selected");
+      if (homeBtn.classList.contains("selected"))
+        homeBtn.classList.remove("selected");
+      if (meBtn.classList.contains("selected"))
+        meBtn.classList.remove("selected");
+
+      break;
+  }
+};
+
+const ValidateSmallDisplay = () => {
+  if (
+    window.innerWidth <=
+    projectDashboardSizes.minOpenedWidth +
+      projectDashboardSizes.widthOpacityOffset +
+      presentationDashboardSizes.minOpenedWidth +
+      presentationDashboardSizes.widthOpacityOffset
+  ) {
+    Redirect("/about-me");
+    return true;
+  } else return false;
 };

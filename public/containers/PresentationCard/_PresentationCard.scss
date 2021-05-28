@@ -27,7 +27,9 @@
         margin-left: 150px;
 
         .picture {
-            width: 125px;
+            width: 135px;
+            border-radius: 100%;
+            box-shadow: transparentize($color: $lightGray, $amount: 0.75) 0px 5px 12px 0px;
         }
 
         .information {

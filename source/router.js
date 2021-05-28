@@ -17,19 +17,20 @@ function AnalyzeLink() {
 
 function Router() {
   AnalyzeLink();
-
-
+  currentScreen = linkRoute;
   switch (linkRoute) {
     case "":
       Redirect("/home");
+
       break;
 
     case "/home":
-      if (window.innerWidth <= 600) {
-        AboutMeScreen();
-        break;
+      if (ValidateSmallDisplay()) {
+        Redirect("/about-me");
+      } else {
+        HomeScreen();
       }
-      HomeScreen();
+
       break;
 
     case "/about-me":
@@ -51,6 +52,10 @@ function Router() {
 
 function Redirect(path) {
   window.location.href = baseLink + path;
+} //closes Redirect method
+
+function Refresh() {
+  Router();
 } //closes Redirect method
 
 window.onhashchange = function () {
