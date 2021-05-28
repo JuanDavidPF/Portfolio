@@ -45,6 +45,7 @@ Universidad ICESI
   <body>
     <header class="navbar animate__animated animate__slideInLeft">
       <img
+        draggable="false"
         class="logo"
         src="./public/resources/image/icon/favicon.png"
         alt="David Payán Logo"
@@ -53,26 +54,29 @@ Universidad ICESI
       <div class="separation-light"></div>
 
       <nav class="links">
-        <a href="#home" class="link" onclick="MaximisePresentationDashboard()">
+        <a class="link" id="#homeBtn">
           <img
+            draggable="false"
             src="./public/resources/image/icon/home-icon.png"
             alt="Home-page icon"
         /></a>
-        <a href="#me" class="link">
+        <a class="link" id="#meBtn">
           <img
+            draggable="false"
             src="./public/resources/image/icon/me-icon.png"
             alt="Home-page icon"
         /></a>
-        <a href="#projects" class="link" onclick="MaximiseProjectsDashboard()">
+        <a class="link" id="#projectsBtn">
           <img
+            draggable="false"
             src="./public/resources/image/icon/projects-icon.png"
             alt="Home-page icon"
         /></a>
-        <a href="#contact_me" class="link">
+        <!-- <a href="#contact_me" class="link">
           <img
             src="./public/resources/image/icon/contact-icon.png"
             alt="Home-page icon"
-        /></a>
+        /></a> -->
       </nav>
     </header>
     <div>
@@ -82,6 +86,7 @@ Universidad ICESI
         >
           <div class="presentation">
             <img
+              draggable="false"
               class="picture"
               src="./public/resources/image/profile_photo.png"
               alt="Juan David Payán picture"
@@ -106,12 +111,16 @@ Universidad ICESI
           </div>
           <section>
             <header></header>
-            <main></main>
+            <main>
+              <article></article>
+            </main>
           </section>
         </section>
       </main>
     </div>
 
     <script src="./public/containers/ProjectsCard/ProjectsCard.js"></script>
+    <script src="./source/router.js"></script>
+    <script src="./source/navigation.js"></script>
   </body>
 </html>

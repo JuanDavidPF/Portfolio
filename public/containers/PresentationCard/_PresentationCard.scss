@@ -1,6 +1,11 @@
 .presentation__section {
-    min-width: 550px;
+
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.5s;
+    transition-property: none;
+  
     max-width: 100vw;
+ 
     width: 70vw;
     height: 100vh;
     min-height: 750px;
@@ -8,11 +13,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
+    user-select: none;
 
     .presentation {
-
-
+        transition-timing-function: ease-in-out;
+        transition-duration: 0.5s;
+        transition-property: none;
+        min-width: 450px;
         height: fit-content;
         width: 80%;
         margin: 75px;

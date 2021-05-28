@@ -95,9 +95,11 @@ input {
   -ms-flex-negative: 0;
       flex-shrink: 0;
   position: fixed;
-  overflow-y: auto;
-  overflow-x: hidden;
-  z-index: 5;
+  z-index: 1000;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .navbar .separation-light {
@@ -108,7 +110,6 @@ input {
 .navbar .logo {
   margin-top: 45px;
   width: 55px;
-  cursor: pointer;
 }
 
 .navbar .links {
@@ -146,7 +147,12 @@ input {
 }
 
 .presentation__section {
-  min-width: 550px;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-property: none;
+  transition-property: none;
   max-width: 100vw;
   width: 70vw;
   height: 100vh;
@@ -161,9 +167,20 @@ input {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .presentation__section .presentation {
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-property: none;
+  transition-property: none;
+  min-width: 450px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -202,6 +219,12 @@ input {
 }
 
 .projects__section {
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-property: none;
+  transition-property: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -210,6 +233,7 @@ input {
   min-height: 750px;
   max-height: 1080px;
   min-width: 500px;
+  z-index: 100;
 }
 
 .projects__section .controller {
@@ -229,6 +253,7 @@ input {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  cursor: w-resize;
 }
 
 .projects__section .controller button {
@@ -240,6 +265,10 @@ input {
   position: absolute;
   cursor: w-resize;
   border: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .projects__section section {
@@ -265,10 +294,26 @@ input {
 
 .projects__section section main {
   background-color: #313132;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   -webkit-box-flex: 100;
       -ms-flex-positive: 100;
           flex-grow: 100;
+}
+
+.projects__section section main article {
+  background-color: brown;
+  max-width: 500px;
+  width: 90%;
+  height: 40%;
 }
 
 * {
@@ -292,5 +337,17 @@ main {
   -webkit-box-flex: 0;
       -ms-flex-positive: 0;
           flex-grow: 0;
+}
+
+img {
+  user-drag: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+a {
+  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */
