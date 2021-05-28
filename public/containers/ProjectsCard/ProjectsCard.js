@@ -160,7 +160,7 @@ const AboutMeScreen = () => {
     SetTransitionsProperties(projectDashboard, "width", true);
 
     presentationDashboard.style.width = "100vw";
-    presentationDashboard.style.maxWidth = "none";
+    presentationDashboard.style.maxWidth = "100vw";
     projectDashboard.style.width = "0px";
     projectDashboard.style.paddingLeft = "0px";
 
