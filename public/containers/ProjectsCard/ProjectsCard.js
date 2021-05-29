@@ -12,6 +12,7 @@ const projectsContent = projectDashboard.querySelector("section>main");
 const projectDashboardBtn = document.querySelector(
   ".projects__section>.controller>button"
 );
+const projectDashboardBtnIcon = projectDashboardBtn.querySelector("img");
 const projectDashboardBar = document.querySelector(
   ".projects__section>.controller"
 );
@@ -64,7 +65,7 @@ document.addEventListener("pointerup", (event) => {
 
 document.addEventListener("pointermove", (event) => {
   if (resizeBtnClicked && !resizingPanel) {
-    ResizePresentaionPanel(event.clientX);
+    ResizePresentationPanel(event.clientX);
   }
 });
 
@@ -75,60 +76,136 @@ const ClickedOnResize = () => {
   if (currentScreen == "/projects") projectDashboard.style.paddingLeft = "0px";
 };
 
-const ResizePresentaionPanel = (width) => {
+const ResizePresentationPanel = (width) => {
   resizingPanel = true;
-
   let presentationWidth = (width / window.innerWidth) * 100 + "vw";
 
-  //ToProjectsZone
-  if (width < presentationDashboardSizes.minOpenedWidth) {
-    if (currentScreen != "/projects") {
-      presentationWidth = presentationDashboardSizes.minOpenedWidth + "px";
+  switch (currentScreen) {
+    //Home Section
 
-      let extension = Map(
-        width,
-        presentationDashboardSizes.minOpenedWidth - 50,
-        presentationDashboardSizes.minOpenedWidth,
-        10,
-        0
-      );
-      if (extension > 50) extension = 50;
-      projectDashboardBar.style.boxShadow =
-        "#2f5af580 -3px 0px " + extension + "px " + extension / 2 + "px";
-    }
-  }
+    case "/home":
+      //To Projects from Home
+      if (width < presentationDashboardSizes.minOpenedWidth) {
+        presentationWidth = presentationDashboardSizes.minOpenedWidth + "px";
 
-  //ToHomeZone
-  else if (
-    width >= presentationDashboardSizes.minOpenedWidth &&
-    width <= window.innerWidth - projectDashboardSizes.minOpenedWidth
-  ) {
-    projectDashboardBar.style.boxShadow = "#8f8f8fec -3px 0px 15px 0px";
-  }
+        HandleProjectsBarShadow(
+          "#2f5af580",
+          width,
 
-  //ToAboutMeZone
-  else if (width > window.innerWidth - projectDashboardSizes.minOpenedWidth) {
-    if (currentScreen == "/home") {
-      presentationWidth =
-        window.innerWidth - projectDashboardSizes.minOpenedWidth + "px";
+          presentationDashboardSizes.minOpenedWidth,
+          presentationDashboardSizes.minOpenedWidth - 50
+        );
+        ChangeBtnDashboardIcon(
+          "./public/resources/image/icon/projects-icon.png"
+        );
+      }
 
-      let extension = Map(
-        width,
-        window.innerWidth - projectDashboardSizes.minOpenedWidth - 50,
-        window.innerWidth - projectDashboardSizes.minOpenedWidth,
-        0,
-        10
-      );
-      if (extension > 50) extension = 50;
-      projectDashboardBar.style.boxShadow =
-        "#2f5af580 -3px 0px " + extension + "px " + extension / 2 + "px";
-    }
+      //Inside Home
+      else if (
+        width >= presentationDashboardSizes.minOpenedWidth &&
+        width <= window.innerWidth - projectDashboardSizes.minOpenedWidth
+      ) {
+        RestoreProjectsBarShadow();
+        ChangeBtnDashboardIcon(
+          "./public/resources/image/icon/barTexture-icon.png"
+        );
+      }
+
+      //To About Me from Home
+      else if (
+        width >
+        window.innerWidth - projectDashboardSizes.minOpenedWidth
+      ) {
+        presentationWidth =
+          window.innerWidth - projectDashboardSizes.minOpenedWidth + "px";
+
+        HandleProjectsBarShadow(
+          "#2f5af580",
+          width,
+          window.innerWidth - projectDashboardSizes.minOpenedWidth - 50,
+          window.innerWidth - projectDashboardSizes.minOpenedWidth
+        );
+
+        ChangeBtnDashboardIcon("./public/resources/image/icon/me-icon.png");
+      }
+
+      break;
+
+    //About Section
+
+    case "/about-me":
+      if (width >= window.innerWidth - 150)
+        ChangeBtnDashboardIcon(
+          "./public/resources/image/icon/barTexture-icon.png"
+        );
+      else if (
+        width >= presentationDashboardSizes.minOpenedWidth &&
+        width < window.innerWidth - 150
+      ) {
+        //To Home from About Me
+        ChangeBtnDashboardIcon("./public/resources/image/icon/home-icon.png");
+      }
+
+      //To Projects from About Me
+      else if (width < presentationDashboardSizes.minOpenedWidth) {
+        presentationWidth = presentationDashboardSizes.minOpenedWidth + "px";
+
+        HandleProjectsBarShadow(
+          "#2f5af580",
+          width,
+          presentationDashboardSizes.minOpenedWidth,
+          presentationDashboardSizes.minOpenedWidth - 50
+        );
+        ChangeBtnDashboardIcon(
+          "./public/resources/image/icon/projects-icon.png"
+        );
+      }
+
+      break;
+
+    //Project Section
+
+    case "/projects":
+      //Less than NavBar
+
+      if (width <= 75) {
+        presentationWidth = 75 + "px";
+      } else if (width > 75 && width < 75 + 150) {
+        ChangeBtnDashboardIcon(
+          "./public/resources/image/icon/barTexture-icon.png"
+        );
+      }
+      //From Projects to Home
+      else if (
+        width > 75 + 150 &&
+        width <= window.innerWidth - projectDashboardSizes.minOpenedWidth
+      ) {
+        ChangeBtnDashboardIcon("./public/resources/image/icon/home-icon.png");
+      }
+
+      //From Projects to About Me
+      else if (
+        width >
+        window.innerWidth - projectDashboardSizes.minOpenedWidth
+      ) {
+        ChangeBtnDashboardIcon("./public/resources/image/icon/me-icon.png");
+        presentationWidth =
+          window.innerWidth - projectDashboardSizes.minOpenedWidth + "px";
+
+        HandleProjectsBarShadow(
+          "#2f5af580",
+          width,
+          window.innerWidth - projectDashboardSizes.minOpenedWidth - 50,
+          window.innerWidth - projectDashboardSizes.minOpenedWidth
+        );
+      }
+
+      break;
   }
 
   presentationDashboard.style.width = presentationWidth;
 
   ExpandProjectDashboard();
-
   ProjectsOpacityHandler();
   PresentationOpacityHandler();
   resizingPanel = false;
@@ -177,8 +254,11 @@ const DragPanelNavigation = (mouseX) => {
         presentationCollapsed == false
       ) {
         Redirect("/projects");
-      } else if (mouseX > window.innerWidth - 10) {
-        Redirect("/about-me");
+      } else if (mouseX > window.innerWidth - 150) {
+        Refresh();
+        ChangeBtnDashboardIcon(
+          "./public/resources/image/icon/barTexture-icon.png"
+        );
       } else {
         Redirect("/home");
       }
@@ -186,8 +266,11 @@ const DragPanelNavigation = (mouseX) => {
 
       break;
     case "/projects":
-      if (mouseX <= 70) {
-        ProjectsScreen();
+      if (mouseX < 75 + 150) {
+        Refresh();
+        ChangeBtnDashboardIcon(
+          "./public/resources/image/icon/barTexture-icon.png"
+        );
       } else if (mouseX > window.innerWidth - 560) {
         Redirect("/about-me");
       } else {
@@ -204,13 +287,13 @@ const HomeScreen = () => {
     resizingPanel = true;
     presentationCollapsed = false;
 
-    projectDashboardBar.style.boxShadow = "#8f8f8fec -3px 0px 15px 0px";
-
     SetTransitionsProperties(presentationDashboard, "width", true);
     SetTransitionsProperties(presentationContent, "opacity", true);
 
     SetTransitionsProperties(projectDashboard, "width", true);
     SetTransitionsProperties(projectsContent, "opacity", true);
+
+    RestoreProjectsBarShadow();
 
     presentationDashboard.style.width = 50 + "vw";
 
@@ -222,6 +305,9 @@ const HomeScreen = () => {
     projectDashboard.style.paddingLeft = "0px";
 
     setTimeout(() => {
+      ChangeBtnDashboardIcon(
+        "./public/resources/image/icon/barTexture-icon.png"
+      );
       presentationDashboard.style.minWidth =
         presentationDashboardSizes.minOpenedWidth + "px";
 
@@ -242,6 +328,7 @@ const HomeScreen = () => {
 const AboutMeScreen = () => {
   if (!resizingPanel) {
     UpdateLinkBtns("/about-me");
+
     resizingPanel = true;
     presentationCollapsed = false;
     SetTransitionsProperties(presentationDashboard, "width", true);
@@ -250,7 +337,7 @@ const AboutMeScreen = () => {
     SetTransitionsProperties(presentationContent, "opacity", true);
     SetTransitionsProperties(projectsContent, "opacity", true);
 
-    projectDashboardBar.style.boxShadow = "#8f8f8fec -3px 0px 15px 0px";
+    RestoreProjectsBarShadow();
 
     presentationDashboard.style.width = "100vw";
     presentationDashboard.style.maxWidth = "100vw";
@@ -262,6 +349,9 @@ const AboutMeScreen = () => {
     projectsContent.style.opacity = 0;
 
     setTimeout(() => {
+      ChangeBtnDashboardIcon(
+        "./public/resources/image/icon/barTexture-icon.png"
+      );
       SetTransitionsProperties(presentationDashboard, "width", false);
       SetTransitionsProperties(presentationContent, "opacity", false);
 
@@ -286,7 +376,7 @@ const ProjectsScreen = () => {
     SetTransitionsProperties(projectDashboard, "width", true);
     SetTransitionsProperties(projectsContent, "opacity", true);
 
-    projectDashboardBar.style.boxShadow = "#8f8f8fec -3px 0px 15px 0px";
+    RestoreProjectsBarShadow();
 
     presentationDashboard.style.minWidth = "0px";
     presentationDashboard.style.maxWidth = "100vw";
@@ -298,7 +388,11 @@ const ProjectsScreen = () => {
     projectsContent.style.opacity = 1;
 
     setTimeout(() => {
+      ChangeBtnDashboardIcon(
+        "./public/resources/image/icon/barTexture-icon.png"
+      );
       resizingPanel = false;
+      
       projectDashboard.style.paddingLeft = "75px";
       SetTransitionsProperties(presentationDashboard, "width", false);
       SetTransitionsProperties(presentationContent, "opacity", false);
@@ -372,4 +466,19 @@ const ValidateSmallDisplay = () => {
     Redirect("/about-me");
     return true;
   } else return false;
+};
+
+const ChangeBtnDashboardIcon = (iconPath) => {
+  projectDashboardBtnIcon.src = iconPath;
+};
+
+const RestoreProjectsBarShadow = () => {
+  projectDashboardBar.style.boxShadow = "#8f8f8fec -3px 0px 15px 0px";
+};
+
+const HandleProjectsBarShadow = (color, currentX, minX, maxX) => {
+  let extension = Map(currentX, minX, maxX, 0, 10);
+  if (extension > 50) extension = 50;
+  projectDashboardBar.style.boxShadow =
+    color + " -3px 0px " + extension + "px " + extension / 2 + "px";
 };

@@ -3,7 +3,7 @@
     transition-timing-function: ease-in-out;
     transition-duration: 0.5s;
     transition-property: none;
-  
+
     display: flex;
     width: 30vw;
     height: 100vh;
@@ -17,7 +17,6 @@
         height: 100%;
         width: 12px;
         background-color: $darkGray;
-     
         display: flex;
         flex-direction: column;
         align-items: flex-end;
@@ -25,6 +24,9 @@
         cursor: w-resize;
 
         button {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
             $circleSize: 60px;
             height: $circleSize * 1.7;
             width: $circleSize;
@@ -35,6 +37,13 @@
             cursor: w-resize;
             border: none;
             user-select: none;
+
+            img {
+                user-select: none;
+                margin-right: 6px;
+            }
+
+
 
         }
     }
