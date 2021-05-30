@@ -4,6 +4,7 @@
     transition-duration: 0.5s;
     transition-property: none;
 
+
     max-width: 100%;
 
     width: 70vw;
@@ -16,6 +17,7 @@
     user-select: none;
 
     .presentation {
+       
         display: flex;
         flex-direction: column;
         transition-timing-function: ease-in-out;
@@ -23,12 +25,15 @@
         transition-property: none;
         min-width: 450px;
         max-width: 1500px;
+   
+        height: 50px;
         height: fit-content;
         width: 80%;
         margin: 75px;
         padding: 50px;
         margin-left: 150px;
-        margin-top: 200px;
+    
+        margin-top: 0px;
 
         .picture {
             width: 135px;
@@ -38,7 +43,7 @@
 
         .information {
             margin-top: 50px;
-
+      
             .title {
                 font-family: $lato;
                 font-size: 75px;
@@ -66,18 +71,13 @@
             transition-timing-function: ease-in-out;
             transition-duration: 0.5s;
             transition-property: opacity;
-            opacity: 0;
-            display: absolute;
-            margin-top: 115px;
+            opacity: 0;  
+            bottom: 0;         
+            margin-bottom: 10px;
             width: 150px;
-            position: relative;
+            position: absolute;
             align-self: center;
         }
 
     }
 }
-
-
-
-
-
