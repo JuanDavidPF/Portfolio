@@ -170,9 +170,9 @@ input {
 }
 
 .navbar .links .link.selected {
-  background-color: #0538ED;
-  -webkit-box-shadow: #0538ED -1.5px 0px 0px 5px, #0538ED 0px 0px 100px 3px;
-          box-shadow: #0538ED -1.5px 0px 0px 5px, #0538ED 0px 0px 100px 3px;
+  background-color: #1748f7;
+  -webkit-box-shadow: #1748f7 -1.5px 0px 0px 5px, #1748f7 0px 0px 100px 3px;
+          box-shadow: #1748f7 -1.5px 0px 0px 5px, #1748f7 0px 0px 100px 3px;
 }
 
 .navbar .links .link.selected img {
@@ -404,7 +404,7 @@ input {
 
 .more-about-me {
   display: none;
-  background-color: #0538ED;
+  padding-left: 75px;
   width: 100vw;
 }
 

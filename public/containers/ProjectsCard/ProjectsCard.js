@@ -338,11 +338,7 @@ const HomeScreen = () => {
       ChangeBtnDashboardIcon(
         "./public/resources/image/icon/barTexture-icon.png"
       );
-      presentationDashboard.style.minWidth =
-        presentationDashboardSizes.minOpenedWidth + "px";
-
-      projectDashboard.style.minWidth =
-        presentationDashboardSizes.minOpenedWidth + "px";
+     
 
       SetTransitionsProperties(presentationDashboard, "width", false);
       SetTransitionsProperties(presentationContent, "opacity", false);
@@ -369,7 +365,7 @@ const AboutMeScreen = () => {
 
     RestoreProjectsBarShadow();
 
-    presentationDashboard.style.width = "100vw";
+    presentationDashboard.style.width = "99.5vw";
     presentationDashboard.style.maxWidth = "100vw";
 
     projectDashboard.style.width = "0px";
