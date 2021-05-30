@@ -294,6 +294,12 @@ input {
       align-self: center;
 }
 
+@media (max-width: 1200px) {
+  .presentation__section .presentation .scrollCta {
+    display: none;
+  }
+}
+
 .projects__section {
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
