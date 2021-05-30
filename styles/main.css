@@ -609,6 +609,12 @@ input {
     font-size: 20px;
     width: 90%;
   }
+  .more-about-me .i-am-developer main h1 {
+    font-size: 30px;
+  }
+  .more-about-me .i-am-developer main p {
+    font-size: 20px;
+  }
 }
 
 * {
