@@ -28,7 +28,7 @@
         align-items: center;
         justify-content: center;
         padding: 100px 0 100px 75px;
-        background-color: $lightGray;
+        background-color: $darkGray;
         width: 100%;
 
 
@@ -379,6 +379,90 @@
             }
         }
     }
+
+    footer {
+        position: sticky;
+        bottom: 0;
+        width: 100%;
+
+
+        header {
+
+            position: absolute;
+            top: -30px;
+            background-color: $lightGray;
+            margin-left: 115px;
+            height: 40px;
+            padding: 25px 70px;
+            border-radius: 15px 15px 0px 0px;
+            display: inline-block;
+
+
+            h1 {
+                font-family: $redHat;
+                font-size: 22px;
+                font-weight: 500;
+                color: white;
+                display: inline;
+
+            }
+        }
+
+        main {
+
+            background-color: $lightGray;
+
+            padding: 25px 0;
+            padding-left: 75px;
+            width: 100%;
+            box-shadow: transparentize($color: $darkGray, $amount: 0.65) 0px -3px 20px 5px;
+            display: flex;
+            justify-content: center;
+
+            div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                max-width: 1500px;
+                width: 75%;
+
+
+                .personal {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+
+                    p {
+                        margin-top: 5px;
+                        color: $white;
+                        font-family: $redHat;
+                        font-weight: 300;
+                        font-style: italic;
+                        font-size: 18px;
+
+                    }
+                }
+
+                .social {
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 300px;
+
+
+                    a {
+                        img {
+                            width: 40px;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
 }
 
 
@@ -505,8 +589,10 @@
             main {
                 div {
                     margin-top: 25px;
+
                     article {
                         margin-top: 25px;
+
                         img {
 
                             height: 40%
@@ -514,6 +600,44 @@
 
                         h3 {
                             font-size: 18px;
+                        }
+                    }
+                }
+            }
+        }
+
+        footer {
+            header {
+                display: none;
+            }
+
+            main {
+                div {
+                    flex-direction: column-reverse;
+
+                    .personal {
+                        margin-top: 20px;
+                        max-width: 750px;
+                        width: 100%;
+                        flex-direction: row;
+                        justify-content: space-around;
+                        align-items: center;
+                        flex-wrap: wrap;
+
+                        p {
+                            font-size: 15px;
+                            text-align: center;
+                        }
+                    }
+
+                    .social {
+                        max-width: 500px;
+                        width: 100%;
+
+                        a {
+                            img {
+                                width: 35px;
+                            }
                         }
                     }
                 }

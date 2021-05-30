@@ -538,7 +538,7 @@ input {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 100px 0 100px 75px;
-  background-color: #313132;
+  background-color: #1D1D1D;
   width: 100%;
 }
 
@@ -957,6 +957,102 @@ input {
   color: #FF6B6B;
 }
 
+.more-about-me footer {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+}
+
+.more-about-me footer header {
+  position: absolute;
+  top: -30px;
+  background-color: #313132;
+  margin-left: 115px;
+  height: 40px;
+  padding: 25px 70px;
+  border-radius: 15px 15px 0px 0px;
+  display: inline-block;
+}
+
+.more-about-me footer header h1 {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: white;
+  display: inline;
+}
+
+.more-about-me footer main {
+  background-color: #313132;
+  padding: 25px 0;
+  padding-left: 75px;
+  width: 100%;
+  -webkit-box-shadow: rgba(29, 29, 29, 0.35) 0px -3px 20px 5px;
+          box-shadow: rgba(29, 29, 29, 0.35) 0px -3px 20px 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.more-about-me footer main div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  max-width: 1500px;
+  width: 75%;
+}
+
+.more-about-me footer main div .personal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.more-about-me footer main div .personal p {
+  margin-top: 5px;
+  color: white;
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 18px;
+}
+
+.more-about-me footer main div .social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 300px;
+}
+
+.more-about-me footer main div .social a img {
+  width: 40px;
+}
+
 @media (max-width: 1200px) {
   .more-about-me h2 {
     font-size: 26px;
@@ -1059,6 +1155,42 @@ input {
   }
   .more-about-me .interest-fields main div article h3 {
     font-size: 18px;
+  }
+  .more-about-me footer header {
+    display: none;
+  }
+  .more-about-me footer main div {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .more-about-me footer main div .personal {
+    margin-top: 20px;
+    max-width: 750px;
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .more-about-me footer main div .personal p {
+    font-size: 15px;
+    text-align: center;
+  }
+  .more-about-me footer main div .social {
+    max-width: 500px;
+    width: 100%;
+  }
+  .more-about-me footer main div .social a img {
+    width: 35px;
   }
 }
 
