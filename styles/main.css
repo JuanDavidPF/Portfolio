@@ -429,6 +429,31 @@ input {
   width: 100vw;
 }
 
+.more-about-me h2 {
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+  -webkit-transition-property: "font-size";
+  transition-property: "font-size";
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: 400;
+  font-size: 35px;
+}
+
+.more-about-me p {
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+  -webkit-transition-property: "font-size";
+  transition-property: "font-size";
+  font-family: "Montserrat", sans-serif;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 30px;
+}
+
 .more-about-me .love-creation {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -509,13 +534,9 @@ input {
 }
 
 .more-about-me .love-creation main .information p {
-  font-family: "Montserrat", sans-serif;
-  font-size: 25px;
-  font-weight: 300;
   color: white;
   width: 570px;
   margin-top: 74px;
-  line-height: 30px;
 }
 
 .more-about-me .love-creation main .information p span {
@@ -550,39 +571,32 @@ input {
   width: 75px;
 }
 
-.more-about-me .i-am-developer main h1 {
-  font-family: "Red Hat Display", sans-serif;
+.more-about-me .i-am-developer main h2 {
   margin-top: 30px;
-  font-weight: 400;
-  font-size: 40px;
   color: #FF6B6B;
 }
 
-.more-about-me .i-am-developer main h1 span {
+.more-about-me .i-am-developer main h2 span {
   cursor: pointer;
 }
 
-.more-about-me .i-am-developer main h1 .cre {
+.more-about-me .i-am-developer main h2 .cre {
   display: none;
 }
 
-.more-about-me .i-am-developer main h1:hover .cre {
+.more-about-me .i-am-developer main h2:hover .cre {
   display: inline;
 }
 
-.more-about-me .i-am-developer main h1:hover .dev {
+.more-about-me .i-am-developer main h2:hover .dev {
   display: none;
 }
 
 .more-about-me .i-am-developer main p {
   max-width: 1000px;
-  line-height: 30px;
   width: 80%;
   margin-top: 50px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 300;
   color: white;
-  font-size: 22px;
 }
 
 .more-about-me .i-am-developer main p span {
@@ -591,11 +605,138 @@ input {
 
 .more-about-me .experience {
   background-color: white;
-  padding: 100px 0 100px 75px;
+  padding: 75px 0 75px 75px;
   width: 100%;
 }
 
+.more-about-me .experience main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.more-about-me .experience main h2 {
+  margin-top: 30px;
+  color: #848484;
+}
+
+.more-about-me .experience main section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 50px;
+  width: 90%;
+  max-width: 1500px;
+}
+
+.more-about-me .experience main section .frameworks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.more-about-me .experience main section .frameworks .framework {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100px;
+}
+
+.more-about-me .experience main section .frameworks .framework img {
+  width: 50px;
+  margin-bottom: 15px;
+}
+
+.more-about-me .experience main section .frameworks .framework h4 {
+  font-size: 22px;
+  font-family: "Red Hat Display", sans-serif;
+  color: #848484;
+  text-align: center;
+}
+
+.more-about-me .experience main section .frameworks .framework p {
+  margin-top: 5px;
+  font-size: 18px;
+  text-align: center;
+  color: #848484;
+}
+
+.more-about-me .experience main section .languages {
+  background-color: #1D1D1D;
+  cursor: text;
+  border-radius: 15px;
+  min-width: 500px;
+  width: 85%;
+  padding: 50px;
+  -webkit-box-shadow: #313132 0px 0px 15px 0px;
+          box-shadow: #313132 0px 0px 15px 0px;
+}
+
+.more-about-me .experience main section .languages h1 {
+  font-size: 26px;
+  color: white;
+  font-family: "Red Hat Display", sans-serif;
+}
+
+.more-about-me .experience main section .languages h1 span.italic {
+  margin-right: 10px;
+  font-style: italic;
+  font-size: 24px;
+}
+
+.more-about-me .experience main section .languages h1 span.salmon {
+  color: #FF6B6B;
+}
+
+.more-about-me .experience main section .languages h1.comment {
+  font-family: "Red Hat Display", sans-serif;
+  margin-top: 50px;
+  margin-bottom: 15px;
+  margin-left: 50px;
+  font-size: 22px;
+  font-weight: 300;
+  color: #c4c4c4;
+  font-style: italic;
+}
+
+.more-about-me .experience main section .languages h1.variable {
+  color: #FF6B6B;
+  font-size: 24px;
+  margin-top: 10px;
+  margin-left: 80px;
+}
+
 @media (max-width: 1200px) {
+  .more-about-me h2 {
+    font-size: 26px;
+  }
+  .more-about-me p {
+    line-height: 25px;
+    font-size: 18px;
+  }
   .more-about-me .love-creation {
     padding: 50px 0 100px 75px;
   }
@@ -627,14 +768,57 @@ input {
   }
   .more-about-me .love-creation main .information p {
     margin-top: 50px;
-    font-size: 20px;
     width: 90%;
   }
-  .more-about-me .i-am-developer main h1 {
-    font-size: 30px;
+  .more-about-me .experience main section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
-  .more-about-me .i-am-developer main p {
+  .more-about-me .experience main section .frameworks {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .more-about-me .experience main section .frameworks .framework img {
+    width: 40px;
+    margin-bottom: 10px;
+  }
+  .more-about-me .experience main section .frameworks .framework h4 {
     font-size: 20px;
+  }
+  .more-about-me .experience main section .frameworks .framework p {
+    margin-top: 2px;
+    font-size: 16px;
+  }
+  .more-about-me .experience main section .languages {
+    margin-top: 30px;
+    min-width: 0;
+    width: 100%;
+  }
+  .more-about-me .experience main section .languages h1 {
+    font-size: 18px;
+  }
+  .more-about-me .experience main section .languages h1 span.italic {
+    margin-right: 5px;
+    font-size: 18px;
+  }
+  .more-about-me .experience main section .languages h1.comment {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    margin-left: 30px;
+    font-size: 16px;
+  }
+  .more-about-me .experience main section .languages h1.variable {
+    color: #FF6B6B;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 50px;
   }
 }
 

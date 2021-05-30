@@ -4,6 +4,25 @@
     flex-direction: column;
     width: 100vw;
 
+    h2 {
+        transition-duration: 0.5s;
+        transition-timing-function: ease-in-out;
+        transition-property: "font-size";
+        font-family: $redHat;
+        font-weight: 400;
+        font-size: 35px;
+    }
+
+    p {
+        transition-duration: 0.5s;
+        transition-timing-function: ease-in-out;
+        transition-property: "font-size";
+        font-family: $montserrat;
+        font-size: 22px;
+        font-weight: 300;
+        line-height: 30px;
+    }
+
     .love-creation {
         display: flex;
         align-items: center;
@@ -68,13 +87,11 @@
                 }
 
                 p {
-                    font-family: $montserrat;
-                    font-size: 25px;
-                    font-weight: 300;
+
                     color: $white;
                     width: 570px;
                     margin-top: 74px;
-                    line-height: 30px;
+
 
                     span {
                         padding: 0 5px;
@@ -104,11 +121,10 @@
                 width: 75px;
             }
 
-            h1 {
-                font-family: $redHat;
+            h2 {
+
                 margin-top: 30px;
-                font-weight: 400;
-                font-size: 40px;
+
                 color: $salmone;
 
                 span {
@@ -137,13 +153,10 @@
             p {
 
                 max-width: 1000px;
-                line-height: 30px;
                 width: 80%;
                 margin-top: 50px;
-                font-family: $montserrat;
-                font-weight: 300;
                 color: white;
-                font-size: 22px;
+
 
                 span {
                     font-weight: 600;
@@ -154,17 +167,133 @@
 
     }
 
-    .experience{
+    .experience {
         background-color: $white;
-        padding: 100px 0 100px 75px;
+        padding: 75px 0 75px 75px;
         width: 100%;
-     
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h2 {
+
+                margin-top: 30px;
+                color: $lightestGray;
+            }
+
+            section {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 50px;
+
+                width: 90%;
+                max-width: 1500px;
+
+
+                .frameworks {
+                    display: flex;
+
+                    justify-content: space-around;
+                    flex-direction: column;
+
+                    .framework {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        width: 100px;
+
+                        img {
+                            width: 50px;
+                            margin-bottom: 15px;
+                        }
+
+                        h4 {
+                            font-size: 22px;
+                            font-family: $redHat;
+                            color: $lightestGray;
+                            text-align: center;
+
+                        }
+
+                        p {
+                            margin-top: 5px;
+                            font-size: 18px;
+                            text-align: center;
+                            color: $lightestGray;
+
+                        }
+                    }
+                }
+
+                .languages {
+                    background-color: $darkGray;
+                    cursor: text;
+                    border-radius: 15px;
+                    min-width: 500px;
+                    width: 85%;
+
+                    padding: 50px;
+                    box-shadow: $lightGray 0px 0px 15px 0px;
+
+                    h1 {
+                        font-size: 26px;
+                        color: $white;
+                        font-family: $redHat;
+
+                        span {
+
+                            &.italic {
+                                margin-right: 10px;
+                                font-style: italic;
+                                font-size: 24px;
+                            }
+
+                            &.salmon {
+                                color: $salmone;
+                            }
+
+                        }
+
+                        &.comment {
+                            font-family: $redHat;
+                            margin-top: 50px;
+                            margin-bottom: 15px;
+                            margin-left: 50px;
+                            font-size: 22px;
+                            font-weight: 300;
+                            color: $almostWhite;
+                            font-style: italic;
+                        }
+
+                        &.variable {
+                            color: $salmone;
+                            font-size: 24px;
+                            margin-top: 10px;
+                            margin-left: 80px;
+                        }
+
+                    }
+                }
+            }
+        }
+
     }
 }
 
 
 @media (max-width: $medium) {
     .more-about-me {
+
+        h2 {
+            font-size: 26px;
+        }
+
+        p {
+            line-height: 25px;
+            font-size: 18px;
+        }
 
         .love-creation {
 
@@ -197,7 +326,6 @@
 
                     p {
                         margin-top: 50px;
-                        font-size: 20px;
                         width: 90%;
 
                     }
@@ -205,14 +333,69 @@
             }
         }
 
-        .i-am-developer {
-            main {
-                h1 {
-                    font-size: 30px;
-                }
+        .experience {
 
-                p {
-                    font-size: 20px;
+            main {
+                section {
+                    flex-direction: column;
+
+                    .frameworks {
+                        flex-direction: row;
+                        align-items: flex-start;
+
+
+                        .framework {
+
+                            img {
+                                width: 40px;
+                                margin-bottom: 10px;
+                            }
+
+                            h4 {
+                                font-size: 20px;
+
+                            }
+
+                            p {
+                                margin-top: 2px;
+                                font-size: 16px;
+                            }
+                        }
+                    }
+
+                    .languages {
+                        margin-top: 30px;
+                        min-width: 0;
+                        width: 100%;
+
+
+                        h1 {
+                            font-size: 18px;
+
+                            span {
+
+                                &.italic {
+                                    margin-right: 5px;
+                                    font-size: 18px;
+                                }
+                            }
+
+                            &.comment {
+
+                                margin-top: 30px;
+                                margin-bottom: 15px;
+                                margin-left: 30px;
+                                font-size: 16px;
+                            }
+
+                            &.variable {
+                                color: $salmone;
+                                font-size: 20px;
+                                margin-top: 10px;
+                                margin-left: 50px;
+                            }
+                        }
+                    }
                 }
             }
         }
