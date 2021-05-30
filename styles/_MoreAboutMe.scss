@@ -1,5 +1,5 @@
 .more-about-me {
-   
+
     display: none;
     flex-direction: column;
     width: 100vw;
@@ -77,11 +77,24 @@
                     line-height: 55px;
                     color: $white;
 
+                    &::selection {
+                        background-color: transparent;
+                        text-shadow: $white 5px 5px 0px;
+                        color: $salmone;
+                    }
+
+
                     span {
                         font-size: 100px;
                         font-weight: 700;
                         letter-spacing: 0.20em;
                         color: $salmone;
+
+                        &::selection {
+                            background-color: transparent;
+                            text-shadow: 7px 7px 0px;
+                        }
+
                     }
 
                 }
@@ -99,6 +112,11 @@
                         background-color: white;
                         color: $salmone;
                         font-weight: 700;
+
+                        &::selection {
+                            background-color: $white;
+                            color: $salmone;
+                        }
                     }
 
                 }
@@ -124,11 +142,18 @@
             h2 {
 
                 margin-top: 30px;
-
+                font-weight: 500;
                 color: $salmone;
 
                 span {
                     cursor: pointer;
+                    color: $white;
+                    font-style: italic;
+
+                    &::selection {
+                        background-color: $white;
+                        color: $salmone;
+                    }
                 }
 
 
@@ -159,7 +184,15 @@
 
 
                 span {
+                    background-color: $salmone;
+                    padding: 0 5px;
                     font-weight: 600;
+
+
+                    &::selection {
+                        background-color: $white;
+                        color: $salmone;
+                    }
                 }
 
             }
@@ -235,7 +268,7 @@
                     width: 85%;
 
                     padding: 50px;
-                    box-shadow: $lightGray 0px 0px 15px 0px;
+                    box-shadow: transparentize($color: $lightGray, $amount: 0.6) 0px 10px 20px 0px;
 
                     h1 {
                         font-size: 26px;
@@ -280,6 +313,72 @@
         }
 
     }
+
+    .interest-fields {
+
+        background-color: $white;
+        padding: 100px 0 100px 75px;
+        width: 100%;
+        background-color: $salmone;
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h2 {
+                color: $white;
+
+                &::selection {
+                    background-color: $white;
+                    color: $salmone;
+                }
+            }
+
+            p {
+                color: $white;
+
+                &::selection {
+                    background-color: $white;
+                    color: $salmone;
+                }
+            }
+
+            div {
+                display: flex;
+                margin-top: 50px;
+                width: 90%;
+                justify-content: space-around;
+                flex-wrap: wrap;
+
+                article {
+                    margin-top: 50px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-around;
+                    width: 150px;
+
+                    img {
+
+                        height: 60%
+                    }
+
+                    h3 {
+                        color: $white;
+                        margin-top: 15px;
+                        font-size: 22px;
+                        text-align: center;
+
+                        &::selection {
+                            background-color: $white;
+                            color: $salmone;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 
@@ -288,7 +387,9 @@
 
         h2 {
             font-size: 26px;
+
         }
+
 
         p {
             line-height: 25px;
@@ -394,6 +495,25 @@
                                 margin-top: 10px;
                                 margin-left: 50px;
                             }
+                        }
+                    }
+                }
+            }
+        }
+
+        .interest-fields {
+            main {
+                div {
+                    margin-top: 25px;
+                    article {
+                        margin-top: 25px;
+                        img {
+
+                            height: 40%
+                        }
+
+                        h3 {
+                            font-size: 18px;
                         }
                     }
                 }

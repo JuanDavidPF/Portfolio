@@ -2,11 +2,12 @@
 ---------------------Utils
 */
 
-@import './utils/_reset.scss';
+
 @import './utils/_breakpoints.scss';
 @import './utils/_fonts.scss';
 @import './utils/_colors.scss';
 @import './utils/_separation.scss';
+@import './utils/_reset.scss';
 
 /*
 ---------------------Containers
@@ -33,9 +34,7 @@ body {
     display: flex;
     overflow-x: hidden;
 
-    .mainWrapper {
-        background-color: aqua;
-      
+    .mainWrapper {           
 
         .viewport {          
 

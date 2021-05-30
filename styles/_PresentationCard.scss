@@ -10,11 +10,11 @@
     width: 70vw;
     height: 100vh;
     min-height: 850px;
-    max-height: 1080px;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    user-select: none;
+
 
     .presentation {
 
@@ -50,14 +50,22 @@
                 letter-spacing: 5px;
                 color: #1C1C1C;
                 font-weight: 300;
+
+
             }
+
+
+
 
             .subtitle {
                 font-family: $lato;
                 font-weight: 300;
                 font-size: 30px;
                 letter-spacing: 5px;
+
             }
+
+
 
             .separation-gray {
                 margin: 75px 0px 25px 0;
@@ -73,7 +81,7 @@
             transition-property: opacity;
             opacity: 0;
             bottom: 0;
-            margin-bottom: 10px;
+
             width: 150px;
             position: absolute;
             align-self: center;
@@ -86,10 +94,7 @@
 
     .presentation__section {
         .presentation {
-            .scrollCta {
-
-                display: none;
-            }
+            .scrollCta {}
         }
 
     }
