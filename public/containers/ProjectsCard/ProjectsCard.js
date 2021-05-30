@@ -374,7 +374,7 @@ const AboutMeScreen = () => {
     presentationContent.style.opacity = 1;
     projectsContent.style.opacity = 0;
 
-    moreAboutMe.style.display = "flex";
+
 
     scrollCTA.style.opacity = "1";
 
@@ -382,6 +382,8 @@ const AboutMeScreen = () => {
       ChangeBtnDashboardIcon(
         "./public/resources/image/icon/barTexture-icon.png"
       );
+
+      moreAboutMe.style.display = "flex";
       SetTransitionsProperties(presentationDashboard, "width", false);
       SetTransitionsProperties(presentationContent, "opacity", false);
 
