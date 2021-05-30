@@ -1,5 +1,5 @@
 .presentation__section {
-background-color: white;
+    background-color: white;
     transition-timing-function: ease-in-out;
     transition-duration: 0.5s;
     transition-property: none;
@@ -61,18 +61,23 @@ background-color: white;
 
         }
 
-        .scrollCta {   
+        .scrollCta {
 
             transition-timing-function: ease-in-out;
             transition-duration: 0.5s;
-            transition-property: opacity;  
-            opacity: 0;      
+            transition-property: opacity;
+            opacity: 0;
             display: absolute;
             margin-top: 115px;
             width: 150px;
-            position: relative;         
+            position: relative;
             align-self: center;
         }
 
     }
 }
+
+
+
+
+

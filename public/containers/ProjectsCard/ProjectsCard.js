@@ -52,49 +52,30 @@ window.addEventListener("resize", () => {
   }
 });
 
-projectDashboardBar.addEventListener("mousedown", () => {
+projectDashboardBar.addEventListener("pointerdown", () => {
   ClickedOnResize();
 });
 
-projectDashboardBtn.addEventListener("mousedown", () => {
+projectDashboardBtn.addEventListener("pointerdown", () => {
   ClickedOnResize();
 });
 
-projectDashboardBar.addEventListener("touchstart", () => {
-  ClickedOnResize();
 
-});
-
-projectDashboardBtn.addEventListener("touchstart", () => {
-  ClickedOnResize();
-});
-
-document.addEventListener("mouseup", (event) => {
+document.addEventListener("pointerup", (event) => {
   if (resizeBtnClicked) {
     resizeBtnClicked = false;
     DragPanelNavigation(event.clientX);
   }
 });
 
-document.addEventListener("touchend", (event) => {
-  if (resizeBtnClicked) {
-    resizeBtnClicked = false;
-    DragPanelNavigation(event.changedTouches[0].clientX);
-  }
-});
 
-document.addEventListener("mousemove", (event) => {
+document.addEventListener("pointermove", (event) => {
   if (resizeBtnClicked && !resizingPanel) {
     ResizePresentationPanel(event.clientX);
   }
 });
 
-document.addEventListener("touchmove", (event) => {
-  
-  if (resizeBtnClicked && !resizingPanel) {
-    ResizePresentationPanel(event.changedTouches[0].clientX);
-  }
-});
+
 
 const ClickedOnResize = () => {
   if (resizingPanel == false && resizeBtnClicked == false)

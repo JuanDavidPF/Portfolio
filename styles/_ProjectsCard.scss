@@ -85,3 +85,15 @@
         }
     }
 }
+
+
+
+@media (max-width: $medium) {
+
+    .projects__section {
+        .controller {
+            display: none;
+        }
+    }
+
+}
