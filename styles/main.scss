@@ -17,22 +17,29 @@
 ---------------------Components
 */
 
-@import './../public/components/Navbar/_Navbar.scss';
-@import './../public/containers/PresentationCard/_PresentationCard.scss';
-@import './../public/containers/ProjectsCard/_ProjectsCard.scss';
+@import './_Navbar.scss';
+@import './_PresentationCard.scss';
+@import './_ProjectsCard.scss';
+@import './_MoreAboutMe.scss';
 
 * {
 
     font-family: $lato;
 }
 
+html,
+body {
+    width: 100%;
+}
+
 body {
     display: flex;
     overflow-x: hidden;
+
+
 }
 
 main {
-  
 
     height: auto;
     display: flex;
@@ -44,6 +51,7 @@ img {
     user-drag: none;
     user-select: none;
 }
-a{
+
+a {
     cursor: pointer;
 }

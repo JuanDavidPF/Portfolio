@@ -181,16 +181,17 @@ input {
 }
 
 .presentation__section {
+  background-color: white;
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
   -webkit-transition-property: none;
   transition-property: none;
-  max-width: 100vw;
+  max-width: 100%;
   width: 70vw;
   height: 100vh;
-  min-height: 750px;
+  min-height: 850px;
   max-height: 1080px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -208,6 +209,13 @@ input {
 }
 
 .presentation__section .presentation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
   -webkit-transition-duration: 0.5s;
@@ -222,6 +230,7 @@ input {
   margin: 75px;
   padding: 50px;
   margin-left: 150px;
+  margin-top: 200px;
 }
 
 .presentation__section .presentation .picture {
@@ -253,6 +262,23 @@ input {
 .presentation__section .presentation .information .separation-gray {
   margin: 75px 0px 25px 0;
   width: 100%;
+}
+
+.presentation__section .presentation .scrollCta {
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 0;
+  display: absolute;
+  margin-top: 115px;
+  width: 150px;
+  position: relative;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .projects__section {
@@ -376,8 +402,19 @@ input {
   height: 40%;
 }
 
+.more-about-me {
+  display: none;
+  background-color: #0538ED;
+  width: 100vw;
+}
+
 * {
   font-family: "Lato", sans-serif;
+}
+
+html,
+body {
+  width: 100%;
 }
 
 body {

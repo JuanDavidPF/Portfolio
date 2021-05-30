@@ -17,6 +17,10 @@ const projectDashboardBar = document.querySelector(
   ".projects__section>.controller"
 );
 
+const moreAboutMe = document.querySelector(".more-about-me");
+
+const scrollCTA = document.querySelector(".scrollCta");
+
 let resizeBtnClicked = false;
 let resizingPanel = false;
 let presentationCollapsed = false;
@@ -48,24 +52,47 @@ window.addEventListener("resize", () => {
   }
 });
 
-projectDashboardBar.addEventListener("pointerdown", () => {
+projectDashboardBar.addEventListener("mousedown", () => {
   ClickedOnResize();
 });
 
-projectDashboardBtn.addEventListener("pointerdown", () => {
+projectDashboardBtn.addEventListener("mousedown", () => {
   ClickedOnResize();
 });
 
-document.addEventListener("pointerup", (event) => {
+projectDashboardBar.addEventListener("touchstart", () => {
+  ClickedOnResize();
+
+});
+
+projectDashboardBtn.addEventListener("touchstart", () => {
+  ClickedOnResize();
+});
+
+document.addEventListener("mouseup", (event) => {
   if (resizeBtnClicked) {
     resizeBtnClicked = false;
     DragPanelNavigation(event.clientX);
   }
 });
 
-document.addEventListener("pointermove", (event) => {
+document.addEventListener("touchend", (event) => {
+  if (resizeBtnClicked) {
+    resizeBtnClicked = false;
+    DragPanelNavigation(event.changedTouches[0].clientX);
+  }
+});
+
+document.addEventListener("mousemove", (event) => {
   if (resizeBtnClicked && !resizingPanel) {
     ResizePresentationPanel(event.clientX);
+  }
+});
+
+document.addEventListener("touchmove", (event) => {
+  
+  if (resizeBtnClicked && !resizingPanel) {
+    ResizePresentationPanel(event.changedTouches[0].clientX);
   }
 });
 
@@ -296,13 +323,16 @@ const HomeScreen = () => {
     RestoreProjectsBarShadow();
 
     presentationDashboard.style.width = 50 + "vw";
-
     presentationContent.style.opacity = 1;
+
     projectsContent.style.opacity = 1;
 
     projectDashboard.style.width = 50 + "vw";
-
     projectDashboard.style.paddingLeft = "0px";
+
+    scrollCTA.style.opacity = "0";
+
+    moreAboutMe.style.display = "none";
 
     setTimeout(() => {
       ChangeBtnDashboardIcon(
@@ -348,6 +378,10 @@ const AboutMeScreen = () => {
     presentationContent.style.opacity = 1;
     projectsContent.style.opacity = 0;
 
+    moreAboutMe.style.display = "flex";
+
+    scrollCTA.style.opacity = "1";
+
     setTimeout(() => {
       ChangeBtnDashboardIcon(
         "./public/resources/image/icon/barTexture-icon.png"
@@ -387,12 +421,16 @@ const ProjectsScreen = () => {
     presentationContent.style.opacity = 0;
     projectsContent.style.opacity = 1;
 
+    scrollCTA.style.opacity = "0";
+
+    moreAboutMe.style.display = "none";
+
     setTimeout(() => {
       ChangeBtnDashboardIcon(
         "./public/resources/image/icon/barTexture-icon.png"
       );
       resizingPanel = false;
-      
+
       projectDashboard.style.paddingLeft = "75px";
       SetTransitionsProperties(presentationDashboard, "width", false);
       SetTransitionsProperties(presentationContent, "opacity", false);
