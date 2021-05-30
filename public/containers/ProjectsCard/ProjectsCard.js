@@ -220,7 +220,7 @@ const ResizePresentationPanel = (width) => {
 };
 
 const ProjectsOpacityHandler = () => {
-  projectsContent.style.opacity = Map(
+  projectsContent.style.opacity = MapValue(
     projectDashboard.offsetWidth,
     projectDashboardSizes.minOpenedWidth +
       projectDashboardSizes.widthOpacityOffset,
@@ -231,7 +231,7 @@ const ProjectsOpacityHandler = () => {
 };
 
 const PresentationOpacityHandler = () => {
-  presentationContent.style.opacity = Map(
+  presentationContent.style.opacity = MapValue(
     presentationDashboard.offsetWidth,
     presentationDashboardSizes.minOpenedWidth,
     presentationDashboardSizes.minOpenedWidth +
@@ -345,6 +345,7 @@ const AboutMeScreen = () => {
     SetTransitionsProperties(projectsContent, "opacity", true);
 
     RestoreProjectsBarShadow();
+    DownloadCreationImages();
 
     presentationDashboard.style.width = "99.5vw";
     presentationDashboard.style.maxWidth = "100vw";
@@ -420,7 +421,7 @@ const ProjectsScreen = () => {
   }
 };
 
-const Map = (n, start1, stop1, start2, stop2) => {
+const MapValue = (n, start1, stop1, start2, stop2) => {
   return ((n - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
 };
 
@@ -494,7 +495,7 @@ const RestoreProjectsBarShadow = () => {
 };
 
 const HandleProjectsBarShadow = (color, currentX, minX, maxX) => {
-  let extension = Map(currentX, minX, maxX, 0, 10);
+  let extension = MapValue(currentX, minX, maxX, 0, 10);
   if (extension > 50) extension = 50;
   projectDashboardBar.style.boxShadow =
     color + " -3px 0px " + extension + "px " + extension / 2 + "px";
