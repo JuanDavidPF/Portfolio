@@ -313,6 +313,7 @@ input {
           transition-duration: 0.5s;
   -webkit-transition-property: none;
   transition-property: none;
+  position: relative;
   max-width: 100%;
   width: 70vw;
   height: 100vh;
@@ -422,11 +423,6 @@ input {
   }
   .presentation__section .presentation .information .subtitle {
     font-size: 18px;
-  }
-  .presentation__section .presentation .scrollCta {
-    margin-top: 70px;
-    width: 100px;
-    position: initial;
   }
 }
 
