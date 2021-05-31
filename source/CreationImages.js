@@ -39,11 +39,7 @@ const TransitionBackgrounds = (element, urls, delay) => {
     }
 
     currentUrl++;
-    if (currentUrl < urls.length) {
-      element.style.backgroundImage = "url(" + urls[currentUrl] + ")";
-    } else {
-      currentUrl = 0;
-      element.style.backgroundImage = "url(" + urls[currentUrl] + ")";
-    }
+    if (currentUrl >= urls.length) currentUrl = 0;
+    element.style.backgroundImage = "url(" + urls[currentUrl] + ")";
   }, delay);
 };

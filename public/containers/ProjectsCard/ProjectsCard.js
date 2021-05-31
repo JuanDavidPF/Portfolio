@@ -308,6 +308,7 @@ const HomeScreen = () => {
     presentationContent.style.opacity = 1;
 
     projectsContent.style.opacity = 1;
+    projectDashboardHeader.style.opacity = 1;
 
     projectDashboard.style.width = 50 + "vw";
     projectDashboard.style.paddingLeft = "0px";
@@ -344,6 +345,7 @@ const AboutMeScreen = () => {
     SetTransitionsProperties(presentationContent, "opacity", true);
     SetTransitionsProperties(projectsContent, "opacity", true);
 
+
     RestoreProjectsBarShadow();
     DownloadCreationImages();
 
@@ -352,6 +354,8 @@ const AboutMeScreen = () => {
 
     projectDashboard.style.width = "0px";
     projectDashboard.style.paddingLeft = "0px";
+
+    projectDashboardHeader.style.opacity = "0";
 
     presentationContent.style.opacity = 1;
     projectsContent.style.opacity = 0;
@@ -364,11 +368,15 @@ const AboutMeScreen = () => {
       );
 
       moreAboutMe.style.display = "flex";
+
+      projectDashboard.style.minWidth = "0";
+
       SetTransitionsProperties(presentationDashboard, "width", false);
       SetTransitionsProperties(presentationContent, "opacity", false);
 
       SetTransitionsProperties(projectDashboard, "width", false);
       SetTransitionsProperties(projectsContent, "opacity", false);
+      SetTransitionsProperties(projectDashboardHeader, "opacity", false);
 
       resizingPanel = false;
     }, 500);
@@ -398,6 +406,7 @@ const ProjectsScreen = () => {
 
     presentationContent.style.opacity = 0;
     projectsContent.style.opacity = 1;
+    projectDashboardHeader.style.opacity = 1;
 
     scrollCTA.style.opacity = "0";
 
