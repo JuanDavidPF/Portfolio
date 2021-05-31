@@ -11,6 +11,8 @@
     position: fixed;
     z-index: 1000;
     user-select: none;
+    overflow-y: auto;
+    overflow-x: hidden;
 
     box-shadow: transparentize($color: #000000, $amount: 0.7) 3px 0px 15px 0px;
 
