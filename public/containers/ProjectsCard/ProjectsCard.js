@@ -1,3 +1,5 @@
+const navBar = document.querySelector(".navbar");
+
 const homeBtn = document.getElementById("#homeBtn");
 const meBtn = document.getElementById("#meBtn");
 const projectsBtn = document.getElementById("#projectsBtn");
@@ -60,7 +62,6 @@ projectDashboardBtn.addEventListener("pointerdown", () => {
   ClickedOnResize();
 });
 
-
 document.addEventListener("pointerup", (event) => {
   if (resizeBtnClicked) {
     resizeBtnClicked = false;
@@ -68,14 +69,11 @@ document.addEventListener("pointerup", (event) => {
   }
 });
 
-
 document.addEventListener("pointermove", (event) => {
   if (resizeBtnClicked && !resizingPanel) {
     ResizePresentationPanel(event.clientX);
   }
 });
-
-
 
 const ClickedOnResize = () => {
   if (resizingPanel == false && resizeBtnClicked == false)
@@ -176,16 +174,19 @@ const ResizePresentationPanel = (width) => {
     case "/projects":
       //Less than NavBar
 
-      if (width <= 75) {
-        presentationWidth = 75 + "px";
-      } else if (width > 75 && width < 75 + 150) {
+      if (width <= navBar.offsetWidth) {
+        presentationWidth = navBar.offsetWidth + "px";
+      } else if (
+        width > navBar.offsetWidth &&
+        width < navBar.offsetWidth + 150
+      ) {
         ChangeBtnDashboardIcon(
           "./public/resources/image/icon/barTexture-icon.png"
         );
       }
       //From Projects to Home
       else if (
-        width > 75 + 150 &&
+        width > navBar.offsetWidth + 150 &&
         width <= window.innerWidth - projectDashboardSizes.minOpenedWidth
       ) {
         ChangeBtnDashboardIcon("./public/resources/image/icon/home-icon.png");
@@ -274,7 +275,7 @@ const DragPanelNavigation = (mouseX) => {
 
       break;
     case "/projects":
-      if (mouseX < 75 + 150) {
+      if (mouseX < navBar.offsetWidth + 150) {
         Refresh();
         ChangeBtnDashboardIcon(
           "./public/resources/image/icon/barTexture-icon.png"
@@ -319,7 +320,6 @@ const HomeScreen = () => {
       ChangeBtnDashboardIcon(
         "./public/resources/image/icon/barTexture-icon.png"
       );
-     
 
       SetTransitionsProperties(presentationDashboard, "width", false);
       SetTransitionsProperties(presentationContent, "opacity", false);
@@ -355,8 +355,6 @@ const AboutMeScreen = () => {
 
     presentationContent.style.opacity = 1;
     projectsContent.style.opacity = 0;
-
-
 
     scrollCTA.style.opacity = "1";
 
@@ -411,7 +409,7 @@ const ProjectsScreen = () => {
       );
       resizingPanel = false;
 
-      projectDashboard.style.paddingLeft = "75px";
+      projectDashboard.style.paddingLeft = navBar.offsetWidth + "px";
       SetTransitionsProperties(presentationDashboard, "width", false);
       SetTransitionsProperties(presentationContent, "opacity", false);
 

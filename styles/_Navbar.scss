@@ -84,10 +84,64 @@
 
     .navbar {
         .links {
+         
             height: 300px;
+
             .link:nth-child(1) {
                 display: none;
             }
+
+        }
+    }
+}
+
+
+@media (max-width: $small) {
+
+
+    .navbar {
+        height: 110vh;
+        width: 50px;
+
+        .logo {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            width: 35px;
+        }
+
+        .links {
+
+          
+            min-height: 120px;
+            height: 200px;
+            .link {
+
+                
+                width: 35px;
+                height: 35px;
+                img {
+                    width: 25px;
+                }
+
+
+                &:not(.selected):hover {                 
+    
+                    img {                     
+                        width: 25px;   
+                    }
+                }
+
+                &.selected {
+                    background-color: $payoBlue;
+                    box-shadow: $payoBlue 0px 0px 0px 5px, $payoBlue 0px 0px 100px 3px;
+
+                    img {
+                        opacity: 1;
+                        width: 25px;
+                    }
+                }
+            }
+
 
         }
     }

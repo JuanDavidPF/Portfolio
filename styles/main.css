@@ -270,6 +270,41 @@ input {
   }
 }
 
+@media (max-width: 600px) {
+  .navbar {
+    height: 110vh;
+    width: 50px;
+  }
+  .navbar .logo {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 35px;
+  }
+  .navbar .links {
+    min-height: 120px;
+    height: 200px;
+  }
+  .navbar .links .link {
+    width: 35px;
+    height: 35px;
+  }
+  .navbar .links .link img {
+    width: 25px;
+  }
+  .navbar .links .link:not(.selected):hover img {
+    width: 25px;
+  }
+  .navbar .links .link.selected {
+    background-color: #1748f7;
+    -webkit-box-shadow: #1748f7 0px 0px 0px 5px, #1748f7 0px 0px 100px 3px;
+            box-shadow: #1748f7 0px 0px 0px 5px, #1748f7 0px 0px 100px 3px;
+  }
+  .navbar .links .link.selected img {
+    opacity: 1;
+    width: 25px;
+  }
+}
+
 .presentation__section {
   background-color: white;
   -webkit-transition-timing-function: ease-in-out;
@@ -309,10 +344,6 @@ input {
   transition-property: none;
   min-width: 450px;
   max-width: 1500px;
-  height: 50px;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
   width: 80%;
   margin: 75px;
   padding: 50px;
@@ -365,6 +396,38 @@ input {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+}
+
+@media (max-width: 600px) {
+  .presentation__section .presentation {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    min-width: 250px;
+    margin: 0px;
+    padding: 0px;
+    margin-left: 50px;
+    height: 550px;
+  }
+  .presentation__section .presentation .picture {
+    width: 100px;
+  }
+  .presentation__section .presentation .information .title {
+    text-align: center;
+    font-size: 35px;
+    line-height: 50px;
+  }
+  .presentation__section .presentation .information .subtitle {
+    font-size: 18px;
+  }
+  .presentation__section .presentation .scrollCta {
+    margin-top: 70px;
+    width: 100px;
+    position: initial;
+  }
 }
 
 .projects__section {
@@ -1190,6 +1253,118 @@ input {
   }
   .more-about-me footer main div .social a img {
     width: 35px;
+  }
+}
+
+@media (max-width: 600px) {
+  .more-about-me h2 {
+    font-size: 22px;
+  }
+  .more-about-me p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .more-about-me .love-creation {
+    padding: 0px 0 50px 50px;
+  }
+  .more-about-me .love-creation main {
+    width: 100%;
+  }
+  .more-about-me .love-creation main .image {
+    height: 250px;
+  }
+  .more-about-me .love-creation main .information {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .more-about-me .love-creation main .information h1 {
+    font-size: 25px;
+    line-height: 20px;
+  }
+  .more-about-me .love-creation main .information h1 span {
+    font-size: 30px;
+  }
+  .more-about-me .love-creation main .information p {
+    margin-top: 50px;
+    padding: 10px;
+    width: 100%;
+  }
+  .more-about-me .i-am-developer {
+    padding: 50px 0 50px 50px;
+  }
+  .more-about-me .i-am-developer main img {
+    width: 40px;
+  }
+  .more-about-me .i-am-developer main p {
+    max-width: 1000px;
+    width: 100%;
+    padding: 10px;
+    margin-top: 30px;
+  }
+  .more-about-me .experience {
+    padding: 50px 0 0px 50px;
+  }
+  .more-about-me .experience main h2 {
+    margin-top: 0;
+  }
+  .more-about-me .experience main section {
+    width: 100%;
+  }
+  .more-about-me .experience main section .frameworks .framework img {
+    height: 35px;
+  }
+  .more-about-me .experience main section .frameworks .framework h4 {
+    font-size: 14px;
+  }
+  .more-about-me .experience main section .frameworks .framework p {
+    font-size: 14px;
+  }
+  .more-about-me .experience main section .languages {
+    margin-top: 60px;
+    width: 100%;
+    padding: 30px 10px;
+    border-radius: 0px;
+  }
+  .more-about-me .experience main section .languages h1 {
+    font-size: 16px;
+  }
+  .more-about-me .experience main section .languages h1 span {
+    font-size: 15px;
+  }
+  .more-about-me .experience main section .languages h1.comment {
+    font-size: 12px;
+  }
+  .more-about-me .experience main section .languages h1.variable {
+    font-size: 14px;
+  }
+  .more-about-me .interest-fields {
+    padding: 50px 0 50px 50px;
+  }
+  .more-about-me .interest-fields main div {
+    margin-top: 25px;
+  }
+  .more-about-me .interest-fields main div article {
+    margin-top: 25px;
+  }
+  .more-about-me .interest-fields main div article img {
+    height: 30%;
+  }
+  .more-about-me .interest-fields main div article h3 {
+    font-size: 15px;
+  }
+  .more-about-me footer {
+    position: initial;
+  }
+  .more-about-me footer main {
+    padding: 30px 0 30px 50px;
   }
 }
 
