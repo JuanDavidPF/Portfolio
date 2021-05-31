@@ -1,3 +1,10 @@
+const bulletPrefab = document.querySelector(
+  ".projects__section>section>main>article>.bullet"
+);
+const bulletContainer = document.querySelector(
+  ".projects__section>section>main>article"
+);
+
 const titleProjectDashboard = document.querySelector(
   ".projects__section>section>header>h1"
 );
@@ -6,11 +13,11 @@ const descriptionProjectDashboard = document.querySelector(
 );
 
 const mainThumbnailNavigation = document.querySelector(
-  ".projects__section>section>main>a"
+  ".projects__section>section>main>.singleProject"
 );
 
 const mainThumbnailProjectDashboard = document.querySelector(
-  ".projects__section>section>main>a>img"
+  ".projects__section>section>main>.singleProject>img"
 );
 
 const projectDashboardHeader = document.querySelector(
@@ -19,9 +26,11 @@ const projectDashboardHeader = document.querySelector(
 
 let projectTransitionThread;
 let projectsDB = [];
+let bullets = [];
 
 const LoadProjects = () => {
   projectsDB = [];
+  bullets = [];
 
   db.collection("projects")
     .get()
@@ -37,10 +46,18 @@ const LoadProjects = () => {
               description: doc.data().description,
               behance: doc.data().behance,
             };
+
             projectsDB.push(project);
 
-            if (querySnapshot.size == projectsDB.length)
+            let bullet = bulletPrefab.cloneNode();
+            bullet.style.display = "block";
+            bulletContainer.appendChild(bullet);
+            bullets.push(bullet);
+
+            if (querySnapshot.size == projectsDB.length) {
+              LoadBulletsListeners();
               RepresentProject(projectsDB, 10000, 0);
+            }
           });
       });
     });
@@ -57,6 +74,7 @@ const RepresentProject = (projects, delay, firstProject) => {
     projects[currentProject].description,
     projects[currentProject].behance
   );
+  SelectBullet(currentProject);
 
   projectTransitionThread = setInterval(() => {
     currentProject++;
@@ -68,6 +86,7 @@ const RepresentProject = (projects, delay, firstProject) => {
       projects[currentProject].description,
       projects[currentProject].behance
     );
+    SelectBullet(currentProject);
   }, delay);
 };
 
@@ -85,7 +104,22 @@ const LoadProjectCard = (thumbnailUrl, title, description, behance) => {
   setTimeout(() => {
     mainThumbnailProjectDashboard.style.opacity = 1;
     projectDashboardHeader.style.opacity = 1;
-  }, 600);
+  }, 650);
+};
+
+const LoadBulletsListeners = () => {
+  for (let i = 0; i < bullets.length; i++) {
+    bullets[i].addEventListener("click", () => {
+      RepresentProject(projectsDB, 5000, i);
+    });
+  }
+};
+
+const SelectBullet = (index) => {
+  bullets.forEach((bullet) => {
+    bullet.classList.remove("selected");
+  });
+  bullets[index].classList.add("selected");
 };
 
 LoadProjects();

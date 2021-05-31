@@ -3,7 +3,7 @@
     transition-timing-function: ease-in-out;
     transition-duration: 0.5s;
     transition-property: none;
-
+    position: relative;
     display: flex;
     width: 30vw;
     height: 100vh;
@@ -89,12 +89,14 @@
             transition-duration: 0.5s;
             transition-property: none;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             width: 100%;
             flex-grow: 100;
 
-            a {
+
+            .singleProject {
 
                 border-radius: 100%;
                 max-width: 350px;
@@ -108,6 +110,38 @@
                     border-radius: 100%;
                     width: 100%;
                     cursor: pointer;
+                }
+            }
+
+            article {
+                display: flex;
+                position: absolute;
+                justify-content: space-around;
+                bottom: 50px;
+                width: 250px;
+
+
+                .bullet {
+                    display: none;
+                    transition-timing-function: ease-in-out;
+                    transition-duration: 0.3s;
+                    transition-property: background-color, box-shadow;
+
+                    border-radius: 100px;
+                    background-color: rgba(175, 175, 175, 0.89);
+                    width: 15px;
+                    height: 15px;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: rgb(255, 255, 255);
+                        box-shadow: rgb(255, 255, 255) 0 0 0 3px;
+                    }
+
+                    &.selected {
+                        background-color: rgb(255, 255, 255);
+                        box-shadow: rgb(255, 255, 255) 0 0 0 3px;
+                    }
                 }
             }
         }
