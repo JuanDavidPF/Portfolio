@@ -685,8 +685,15 @@
                         font-size: 25px;
                         line-height: 20px;
 
+                        &::selection{ 
+                            text-shadow: 3px 3px 0px;
+                        }
                         span {
                             font-size: 30px;
+
+                            &::selection{ 
+                                text-shadow: 3px 3px 0px;
+                            }
                         }
                     }
 

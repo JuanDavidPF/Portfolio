@@ -4,7 +4,7 @@
     transition-duration: 0.5s;
     transition-property: none;
     position: relative;
-
+  
     max-width: 100%;
 
     width: 70vw;
@@ -17,7 +17,7 @@
 
 
     .presentation {
-     
+
         display: flex;
         flex-direction: column;
         transition-timing-function: ease-in-out;
@@ -123,7 +123,7 @@
 
             }
 
-           
+
         }
     }
 }

@@ -523,19 +523,20 @@ input {
   -webkit-transition-property: opacity;
   transition-property: opacity;
   width: 100%;
-  height: 112px;
+  height: auto;
   background-color: #1D1D1D;
-  padding-top: 20px;
-  padding-left: 20px;
+  padding: 20px 0px;
 }
 
 .projects__section section header h1 {
+  margin-left: 20px;
   font-size: 30px;
   color: white;
   font-family: "Red Hat Display", sans-serif;
 }
 
 .projects__section section header p {
+  margin-left: 20px;
   margin-top: 15px;
   color: white;
   font-weight: 300;
@@ -630,6 +631,30 @@ input {
 @media (max-width: 1200px) {
   .projects__section .controller {
     display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .projects__section {
+    min-width: 0px;
+  }
+  .projects__section section header {
+    padding: 20px 0px;
+  }
+  .projects__section section header h1 {
+    margin-left: 20px;
+    font-size: 16px;
+  }
+  .projects__section section header p {
+    margin-left: 20px;
+    font-size: 14px;
+  }
+  .projects__section section main article {
+    width: 175px;
+  }
+  .projects__section section main article .bullet {
+    width: 10px;
+    height: 10px;
   }
 }
 
@@ -1366,8 +1391,20 @@ input {
     font-size: 25px;
     line-height: 20px;
   }
+  .more-about-me .love-creation main .information h1::-moz-selection {
+    text-shadow: 3px 3px 0px;
+  }
+  .more-about-me .love-creation main .information h1::selection {
+    text-shadow: 3px 3px 0px;
+  }
   .more-about-me .love-creation main .information h1 span {
     font-size: 30px;
+  }
+  .more-about-me .love-creation main .information h1 span::-moz-selection {
+    text-shadow: 3px 3px 0px;
+  }
+  .more-about-me .love-creation main .information h1 span::selection {
+    text-shadow: 3px 3px 0px;
   }
   .more-about-me .love-creation main .information p {
     margin-top: 50px;
@@ -1447,6 +1484,10 @@ input {
 
 * {
   font-family: "Lato", sans-serif;
+}
+
+html {
+  overflow-x: hidden;
 }
 
 body {
