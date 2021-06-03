@@ -301,7 +301,7 @@ const HomeScreen = () => {
 
     SetTransitionsProperties(projectDashboard, "width", true);
     SetTransitionsProperties(projectsContent, "opacity", true);
-
+    projectDashboard.querySelector("section").style.display = "flex";
     RestoreProjectsBarShadow();
 
     presentationDashboard.style.width = 50 + "vw";
@@ -345,7 +345,6 @@ const AboutMeScreen = () => {
     SetTransitionsProperties(presentationContent, "opacity", true);
     SetTransitionsProperties(projectsContent, "opacity", true);
 
-
     RestoreProjectsBarShadow();
     DownloadCreationImages();
 
@@ -371,6 +370,8 @@ const AboutMeScreen = () => {
 
       projectDashboard.style.minWidth = "0";
       projectDashboard.style.width = "0";
+      projectDashboard.querySelector("section").style.display = "none";
+
       SetTransitionsProperties(presentationDashboard, "width", false);
       SetTransitionsProperties(presentationContent, "opacity", false);
 
@@ -395,7 +396,7 @@ const ProjectsScreen = () => {
 
     SetTransitionsProperties(projectDashboard, "width", true);
     SetTransitionsProperties(projectsContent, "opacity", true);
-
+    projectDashboard.querySelector("section").style.display = "flex";
     RestoreProjectsBarShadow();
 
     presentationDashboard.style.minWidth = "0px";
