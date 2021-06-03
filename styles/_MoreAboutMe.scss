@@ -1,7 +1,7 @@
 .more-about-me {
 
-    display: none;
-    flex-direction: column;
+
+
     width: 100vw;
 
     h2 {
@@ -385,7 +385,6 @@
         bottom: 0;
         width: 100%;
 
-
         header {
 
             position: absolute;
@@ -685,13 +684,14 @@
                         font-size: 25px;
                         line-height: 20px;
 
-                        &::selection{ 
+                        &::selection {
                             text-shadow: 3px 3px 0px;
                         }
+
                         span {
                             font-size: 30px;
 
-                            &::selection{ 
+                            &::selection {
                                 text-shadow: 3px 3px 0px;
                             }
                         }

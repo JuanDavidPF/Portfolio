@@ -659,11 +659,6 @@ input {
 }
 
 .more-about-me {
-  display: none;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   width: 100vw;
 }
 
@@ -1484,10 +1479,6 @@ input {
 
 * {
   font-family: "Lato", sans-serif;
-}
-
-html {
-  overflow-x: hidden;
 }
 
 body {

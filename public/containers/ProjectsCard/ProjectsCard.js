@@ -367,10 +367,10 @@ const AboutMeScreen = () => {
         "./public/resources/image/icon/barTexture-icon.png"
       );
 
-      moreAboutMe.style.display = "flex";
+      moreAboutMe.style.display = "block";
 
       projectDashboard.style.minWidth = "0";
-
+      projectDashboard.style.width = "0";
       SetTransitionsProperties(presentationDashboard, "width", false);
       SetTransitionsProperties(presentationContent, "opacity", false);
 
