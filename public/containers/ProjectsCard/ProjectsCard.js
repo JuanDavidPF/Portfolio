@@ -23,6 +23,13 @@ const moreAboutMe = document.querySelector(".more-about-me");
 
 const scrollCTA = document.querySelector(".scrollCta");
 
+const projectGallery = document.querySelector(
+  ".projects__section>section>.projects-gallery"
+);
+const projectExpanded = document.querySelector(
+  ".projects__section>section>.projects-expanded"
+);
+
 let resizeBtnClicked = false;
 let resizingPanel = false;
 let presentationCollapsed = false;
@@ -44,14 +51,22 @@ let currentScreen;
 window.addEventListener("resize", () => {
   if (!presentationCollapsed && !resizeBtnClicked && currentScreen == "/home") {
     ValidateSmallDisplay();
+    ExpandProjectDashboard();
 
+    
     setTimeout(() => {
       ExpandProjectDashboard();
       ValidateSmallDisplay();
     }, 501);
 
-    ExpandProjectDashboard();
+   
+  }else if(currentScreen=="/projects"){
+    console.log(navBar.offsetWidth)
+    projectDashboard.style.paddingLeft = navBar.offsetWidth+"px";
   }
+
+
+
 });
 
 projectDashboardBar.addEventListener("pointerdown", () => {
@@ -314,6 +329,9 @@ const HomeScreen = () => {
     projectDashboard.style.width = 50 + "vw";
     projectDashboard.style.paddingLeft = "0px";
 
+    projectExpanded.style.display = "none";
+    projectGallery.style.display = "flex";
+
     scrollCTA.style.opacity = "0";
 
     moreAboutMe.style.display = "none";
@@ -356,6 +374,9 @@ const AboutMeScreen = () => {
     projectDashboard.style.paddingLeft = "0px";
 
     projectDashboardHeader.style.opacity = "0";
+
+    projectExpanded.style.display = "none";
+    projectGallery.style.display = "flex";
 
     presentationContent.style.opacity = 1;
     projectsContent.style.opacity = 0;
@@ -405,6 +426,9 @@ const ProjectsScreen = () => {
     presentationDashboard.style.width = "0px";
 
     projectDashboard.style.width = "100vw";
+
+    projectExpanded.style.display = "flex";
+    projectGallery.style.display = "none";
 
     presentationContent.style.opacity = 0;
     projectsContent.style.opacity = 1;

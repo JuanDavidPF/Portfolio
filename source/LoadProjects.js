@@ -24,6 +24,11 @@ const projectDashboardHeader = document.querySelector(
   ".projects__section>section>header"
 );
 
+const projectsExpandedContainer = document.querySelector(
+  ".projects__section>section>.projects-expanded"
+);
+const projectPrefab = projectsExpandedContainer.querySelector("article");
+
 let projectTransitionThread;
 let projectsDB = [];
 let bullets = [];
@@ -57,6 +62,7 @@ const LoadProjects = () => {
             if (querySnapshot.size == projectsDB.length) {
               LoadBulletsListeners();
               RepresentProject(projectsDB, 10000, 0);
+              CreateProjectsCards(projectsDB);
             }
           });
       });
@@ -88,6 +94,22 @@ const RepresentProject = (projects, delay, firstProject) => {
     );
     SelectBullet(currentProject);
   }, delay);
+};
+
+const CreateProjectsCards = (projects) => {
+  projectsExpandedContainer.innerHTML = "";
+
+  projects.forEach((project) => {
+    let projectCard = projectPrefab.cloneNode(true);
+
+    projectCard.querySelector("a").href = project.behance;
+    projectCard.querySelector("a>div").style.backgroundImage ="url("+project.thumbnail+")";
+    projectCard.querySelector("h1").textContent = project.title;
+
+
+    projectCard.style.display = "flex";
+    projectsExpandedContainer.appendChild(projectCard);
+  });
 };
 
 const LoadProjectCard = (thumbnailUrl, title, description, behance) => {
