@@ -548,7 +548,7 @@ input {
   font-family: "Montserrat", sans-serif;
 }
 
-.projects__section section main {
+.projects__section section .projects-gallery {
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
   -webkit-transition-duration: 0.5s;
@@ -574,13 +574,13 @@ input {
           flex-grow: 100;
 }
 
-.projects__section section main .singleProject {
+.projects__section section .projects-gallery .singleProject {
   border-radius: 100%;
   max-width: 350px;
   width: 80%;
 }
 
-.projects__section section main .singleProject img {
+.projects__section section .projects-gallery .singleProject img {
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
   -webkit-transition-duration: 0.3s;
@@ -592,7 +592,7 @@ input {
   cursor: pointer;
 }
 
-.projects__section section main article {
+.projects__section section .projects-gallery article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -603,7 +603,7 @@ input {
   width: 250px;
 }
 
-.projects__section section main article .bullet {
+.projects__section section .projects-gallery article .bullet {
   display: none;
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
@@ -620,13 +620,13 @@ input {
   cursor: pointer;
 }
 
-.projects__section section main article .bullet:hover {
+.projects__section section .projects-gallery article .bullet:hover {
   background-color: white;
   -webkit-box-shadow: white 0 0 0 3px;
           box-shadow: white 0 0 0 3px;
 }
 
-.projects__section section main article .bullet.selected {
+.projects__section section .projects-gallery article .bullet.selected {
   background-color: white;
   -webkit-box-shadow: white 0 0 0 3px;
           box-shadow: white 0 0 0 3px;
@@ -653,10 +653,10 @@ input {
     margin-left: 20px;
     font-size: 14px;
   }
-  .projects__section section main article {
+  .projects__section section .projects-gallery article {
     width: 175px;
   }
-  .projects__section section main article .bullet {
+  .projects__section section .projects-gallery article .bullet {
     width: 10px;
     height: 10px;
   }

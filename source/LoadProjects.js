@@ -1,8 +1,8 @@
 const bulletPrefab = document.querySelector(
-  ".projects__section>section>main>article>.bullet"
+  ".projects__section>section>.projects-gallery>article>.bullet"
 );
 const bulletContainer = document.querySelector(
-  ".projects__section>section>main>article"
+  ".projects__section>section>.projects-gallery>article"
 );
 
 const titleProjectDashboard = document.querySelector(
@@ -13,11 +13,11 @@ const descriptionProjectDashboard = document.querySelector(
 );
 
 const mainThumbnailNavigation = document.querySelector(
-  ".projects__section>section>main>.singleProject"
+  ".projects__section>section>.projects-gallery>.singleProject"
 );
 
 const mainThumbnailProjectDashboard = document.querySelector(
-  ".projects__section>section>main>.singleProject>img"
+  ".projects__section>section>.projects-gallery>.singleProject>img"
 );
 
 const projectDashboardHeader = document.querySelector(
