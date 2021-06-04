@@ -140,6 +140,7 @@ const ResizePresentationPanel = (width) => {
     //About Section
 
     case "/about-me":
+      projectDashboard.querySelector("section").style.display = "flex";
       if (width >= window.innerWidth - 150)
         ChangeBtnDashboardIcon(
           "./public/resources/image/icon/barTexture-icon.png"
