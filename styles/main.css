@@ -426,6 +426,10 @@ input {
   .presentation__section .presentation .information .subtitle {
     font-size: 18px;
   }
+  .presentation__section .presentation .scrollCta {
+    bottom: 125px;
+    width: 100px;
+  }
 }
 
 .projects__section {
@@ -1022,6 +1026,12 @@ input {
   background-color: white;
   padding: 100px 0 100px 75px;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: #FF6B6B;
 }
 
@@ -1036,6 +1046,8 @@ input {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .more-about-me .interest-fields main h2 {
