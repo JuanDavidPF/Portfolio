@@ -1,6 +1,7 @@
 //link
 let baseLink = "";
 let linkRoute = "";
+let projectRoute = "";
 
 function AnalyzeLink() {
   let link = window.location.href;
@@ -12,6 +13,12 @@ function AnalyzeLink() {
     linkSegments = link.split("#");
     baseLink = linkSegments[0] + "#";
     linkRoute = linkSegments[1];
+    projectRoute = "";
+    if (linkRoute.includes("projects")) {
+      let localRoute = linkRoute.split("/");
+      linkRoute = "/" + localRoute[1];
+      if (localRoute[2]) projectRoute = localRoute[2];
+    }
   }
 } //closes Analyzelink method;
 
@@ -39,6 +46,7 @@ function Router() {
 
     case "/projects":
       ProjectsScreen();
+  
       break;
 
     case "/404":
@@ -48,6 +56,7 @@ function Router() {
       Redirect("/404");
       break;
   } //closes Router switch
+  ProjectModal(projectRoute.length);
 } //closes Router method
 
 function Redirect(path) {

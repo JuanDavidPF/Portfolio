@@ -28,8 +28,8 @@
     font-family: $lato;
 }
 
-html{
-
+html {
+   
 }
 
 body {
@@ -37,9 +37,11 @@ body {
     display: flex;
     overflow-x: hidden;
 
-    .mainWrapper {           
 
-        .viewport {          
+    .mainWrapper {
+     
+
+        .viewport {
 
             display: flex;
             flex-shrink: 0;

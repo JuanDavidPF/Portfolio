@@ -1,3 +1,5 @@
+const projectModal = document.querySelector(".modal");
+
 const bulletPrefab = document.querySelector(
   ".projects__section>section>.projects-gallery>article>.bullet"
 );
@@ -49,7 +51,7 @@ const LoadProjects = () => {
               thumbnail: url,
               title: doc.data().title,
               description: doc.data().description,
-              behance: doc.data().behance,
+              behance: doc.id,
             };
 
             projectsDB.push(project);
@@ -102,10 +104,10 @@ const CreateProjectsCards = (projects) => {
   projects.forEach((project) => {
     let projectCard = projectPrefab.cloneNode(true);
 
-    projectCard.querySelector("a").href = project.behance;
-    projectCard.querySelector("a>div").style.backgroundImage ="url("+project.thumbnail+")";
+    projectCard.querySelector("a").href = "#/projects/" + project.behance;
+    projectCard.querySelector("a>div").style.backgroundImage =
+      "url(" + project.thumbnail + ")";
     projectCard.querySelector("h1").textContent = project.title;
-
 
     projectCard.style.display = "flex";
     projectsExpandedContainer.appendChild(projectCard);
@@ -120,7 +122,7 @@ const LoadProjectCard = (thumbnailUrl, title, description, behance) => {
     titleProjectDashboard.textContent = title;
     descriptionProjectDashboard.textContent = description;
     mainThumbnailProjectDashboard.src = thumbnailUrl;
-    mainThumbnailNavigation.href = behance;
+    mainThumbnailNavigation.href = "#/projects/" + behance;
   }, 300);
 
   setTimeout(() => {
@@ -143,5 +145,41 @@ const SelectBullet = (index) => {
   });
   bullets[index].classList.add("selected");
 };
+
+const ProjectModal = (open) => {
+  if (open) {
+    var imgHolder = projectModal.querySelector("section");
+    imgHolder.innerHTML = "";
+
+    db.collection("projects")
+      .doc(projectRoute)
+      .get()
+      .then((doc) => {
+        let behanceImages = doc.data().behance;
+        if (behanceImages.length == 0) return;
+
+
+        projectModal.style.display = "flex";
+
+        behanceImages.forEach((behanceImg) => {
+          //load projects images
+          var img = document.createElement("img");
+          img.draggable = false;
+          img.src = behanceImg;
+          imgHolder.appendChild(img);
+        });
+        setTimeout(() => {
+          projectModal.style.opacity = 1;
+        }, 10);
+      });
+  } else {
+    projectModal.style.opacity = 0;
+    
+    setTimeout(() => {
+      projectModal.style.display = "none";
+
+    }, 300);
+  }
+}; //closes ProjectModal method
 
 LoadProjects();

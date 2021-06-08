@@ -19,6 +19,7 @@ const projectDashboardBar = document.querySelector(
   ".projects__section>.controller"
 );
 
+
 const moreAboutMe = document.querySelector(".more-about-me");
 
 const scrollCTA = document.querySelector(".scrollCta");
@@ -29,6 +30,8 @@ const projectGallery = document.querySelector(
 const projectExpanded = document.querySelector(
   ".projects__section>section>.projects-expanded"
 );
+
+
 
 let resizeBtnClicked = false;
 let resizingPanel = false;
@@ -61,7 +64,7 @@ window.addEventListener("resize", () => {
 
    
   }else if(currentScreen=="/projects"){
-    console.log(navBar.offsetWidth)
+   
     projectDashboard.style.paddingLeft = navBar.offsetWidth+"px";
   }
 
@@ -439,6 +442,8 @@ const ProjectsScreen = () => {
     moreAboutMe.style.display = "none";
 
     setTimeout(() => {
+
+      
       ChangeBtnDashboardIcon(
         "./public/resources/image/icon/barTexture-icon.png"
       );
